@@ -1,0 +1,170 @@
+[
+    {
+        "name": "Papas fritas",
+        "brand": "Pringles",
+        "price": 2.99,
+        "quantity": 1,
+        "unit": "unit",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Salsa de tomate",
+        "brand": "Heinz",
+        "price": 1.89,
+        "quantity": 1,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Cerveza",
+        "brand": "Corona",
+        "price": 10.99,
+        "quantity": 12,
+        "unit": "botella",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Refresco",
+        "brand": "Coca Cola",
+        "price": 3.49,
+        "quantity": 2,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Papas fritas",
+        "brand": "Lay's",
+        "price": 1.99,
+        "quantity": 1,
+        "unit": "bolsa",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Palitos salados",
+        "brand": "Sanissimo",
+        "price": 2.39,
+        "quantity": 1,
+        "unit": "paquete",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Galletas saladas",
+        "brand": "Ritz",
+        "price": 2.99,
+        "quantity": 1,
+        "unit": "paquete",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Helado",
+        "brand": "Ben & Jerry's",
+        "price": 5.99,
+        "quantity": 1,
+        "unit": "tarrina",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Chips de maíz",
+        "brand": "Doritos",
+        "price": 2.49,
+        "quantity": 1,
+        "unit": "bolsa",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Salsa picante",
+        "brand": "Tabasco",
+        "price": 3.99,
+        "quantity": 1,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Nueces",
+        "brand": "Wonderful",
+        "price": 4.99,
+        "quantity": 1,
+        "unit": "bolsa",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Patatas fritas",
+        "brand": "Matutano",
+        "price": 1.99,
+        "quantity": 1,
+        "unit": "bolsa",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Palomitas de maíz",
+        "brand": "Act II",
+        "price": 2.99,
+        "quantity": 1,
+        "unit": "paquete",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Salsa de queso",
+        "brand": "Président",
+        "price": 2.49,
+        "quantity": 1,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Nuggets de pollo",
+        "brand": "McDonald's",
+        "price": 6.99,
+        "quantity": 10,
+        "unit": "unit",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Pizzas",
+        "brand": "Dr. Oetker",
+        "price": 4.99,
+        "quantity": 1,
+        "unit": "caja",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Salsa de guacamole",
+        "brand": "Yucatan",
+        "price": 3.79,
+        "quantity": 1,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Pretzels",
+        "brand": "Snyder's",
+        "price": 2.49,
+        "quantity": 1,
+        "unit": "paquete",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Hummus",
+        "brand": "Sabra",
+        "price": 3.49,
+        "quantity": 1,
+        "unit": "bote",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Cerveza sin alcohol",
+        "brand": "Heineken",
+        "price": 7.99,
+        "quantity": 6,
+        "unit": "botella",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    },
+    {
+        "name": "Barbacoa",
+        "brand": "Weber",
+        "price": 24.99,
+        "quantity": 1,
+        "unit": "unit",
+        "picture": "https://cdn.icon-icons.com/icons2/1933/PNG/512/iconfinder-picture-images-photo-image-camera-4593187_122267.png"
+    }
+]
