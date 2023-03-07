@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Form, ListGroup, Button } from "react-bootstrap"
+import { Form, ListGroup, Button, Row, Col } from "react-bootstrap"
 import productsService from "../../services/products.services"
 
 const ProductSelector = ({ onSelect }) => {
@@ -34,10 +34,8 @@ const ProductSelector = ({ onSelect }) => {
 
         if (!selectedProducts.includes(product)) {
 
-            console.log(products)
             const indexOfProduct = products.indexOf(product)
             products.splice(indexOfProduct, 1)
-            console.log(products)
 
             setSelectedProducts([...selectedProducts, { ...product, quantity: 1 }]);
         }
@@ -56,8 +54,8 @@ const ProductSelector = ({ onSelect }) => {
     }
 
     return (
-        <>
-            <Form.Group className="mb-3" controlId="selectedProducts">
+        <Row>
+            <Form.Group as={Col} className="mb-3" controlId="selectedProducts">
                 <Form.Label>Products</Form.Label>
                 <Form.Control
                     type="text"
@@ -77,8 +75,8 @@ const ProductSelector = ({ onSelect }) => {
                     ))}
                 </ListGroup>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="selectedProductsList">
-                <Form.Label>Selected Products Jijijjiji</Form.Label>
+            <Form.Group as={Col} className="mb-3" controlId="selectedProductsList">
+                <Form.Label>Selected Products</Form.Label>
                 <ListGroup className="mt-3">
                     {selectedProducts.map((product) => (
                         <ListGroup.Item key={product.id}>
@@ -104,12 +102,7 @@ const ProductSelector = ({ onSelect }) => {
                     ))}
                 </ListGroup>
             </Form.Group>
-            <Button variant="dark"
-                onClick={() => onSelect(selectedProducts)}
-            >
-                Add to event
-            </Button>
-        </>
+        </Row>
     );
 };
 
