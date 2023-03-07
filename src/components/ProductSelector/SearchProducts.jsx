@@ -78,7 +78,7 @@ const ProductSelector = ({ onSelect }) => {
                 </ListGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="selectedProductsList">
-                <Form.Label>Selected Products Jejejejeje</Form.Label>
+                <Form.Label>Selected Products Jijijjiji</Form.Label>
                 <ListGroup className="mt-3">
                     {selectedProducts.map((product) => (
                         <ListGroup.Item key={product.id}>
