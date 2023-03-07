@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Tabs, Tab, Form, Button, Card, Row, Col, Container, ListGroup } from "react-bootstrap"
 import eventsService from "../../services/events.services"
-
+import ProductSelector from "../ProductSelector/ProductSelector"
 
 const NewEventForm = () => {
 
@@ -12,8 +12,11 @@ const NewEventForm = () => {
     const [activeTab, setActiveTab] = useState("basic")
     const [lastTab, setLastTab] = useState(false)
 
+    const [selectedProducts, setSelectedProducts] = useState([]);
+
+
     const handleNext = () => {
-        const tabs = ["basic", "details", "confirm"]
+        const tabs = ["basic", "details", "products", "confirm"]
         const currentIndex = tabs.indexOf(activeTab)
 
         if (currentIndex < tabs.length - 1) {
@@ -33,6 +36,12 @@ const NewEventForm = () => {
             })
             .catch(err => console.log(err))
     }
+
+    const handleProductsChange = (products) => {
+        setSelectedProducts(products)
+        setFormData({ ...formData, products })
+        console.log(selectedProducts)
+    };
 
     return (
         <Form onSubmit={handleFormSubmit}>
@@ -97,18 +106,40 @@ const NewEventForm = () => {
                     </Button>
                 </Tab>
 
+                <Tab eventKey="products" title="Products">
+                    <Form.Group className="mb-3" controlId="products">
+                        <Form.Label>Select products</Form.Label>
+                        <ProductSelector onProductsChange={handleProductsChange} />
+                    </Form.Group>
+                    <Button variant="dark" onClick={handleNext}>
+                        Next
+                    </Button>
+                </Tab>
+
                 <Tab eventKey="confirm" title="Confirmation">
                     <h3>Please check that event details are correct</h3>
 
                     <Card className="p-2">
                         <Card.Title>Name: {formData.name}</Card.Title>
                         <Card.Body>
-
-                            <Card.Text>Date: {formData.date}</Card.Text>
-                            <Card.Text>Time: {formData.time}</Card.Text>
-                            <Card.Text>Description: {formData.description}</Card.Text>
-                            <Card.Text>Location: {formData.location}</Card.Text>
-
+                            <Row>
+                                <Col>
+                                    <Card.Text>Date: {formData.date}</Card.Text>
+                                    <Card.Text>Time: {formData.time}</Card.Text>
+                                    <Card.Text>Description: {formData.description}</Card.Text>
+                                    <Card.Text>Location: {formData.location}</Card.Text>
+                                </Col>
+                                <Col>
+                                    <Card.Text>Selected Products:</Card.Text>
+                                    <ListGroup>
+                                        {selectedProducts.map((product) => (
+                                            <ListGroup.Item key={product.id}>
+                                                {product.name} - {product.quantity}
+                                            </ListGroup.Item>
+                                        ))}
+                                    </ListGroup>
+                                </Col>
+                            </Row>
                             <Button variant="dark" type="submit">Confirm</Button>
                         </Card.Body>
                     </Card>
@@ -120,6 +151,4 @@ const NewEventForm = () => {
 };
 
 export default NewEventForm;
-
-
 
