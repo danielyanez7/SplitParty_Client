@@ -1,13 +1,15 @@
+import './Navigation.css'
 import { useContext } from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Dropdown, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 
 const Navigation = () => {
 
     const { user, logout } = useContext(AuthContext)
+
     return (
-        <Navbar bg="dark" variant="dark" expand="md" className='mb-4'>
+        <Navbar variant="dark" expand="md" className='mb-4 custom-navbar'>
             <Container>
                 <Navbar.Brand href="/">Split Party</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -16,27 +18,51 @@ const Navigation = () => {
                         <Link to="/events">
                             <Nav.Link as="span">Event List</Nav.Link>
                         </Link>
-                        <Link to="/events/create">
-                            <Nav.Link as="span">Create Event</Nav.Link>
-                        </Link>
 
-
-
-
-
-
-
-
+                        {
+                            user
+                            &&
+                            <Link to="/events/create">
+                                <Nav.Link as="span">Create Event</Nav.Link>
+                            </Link>
+                        }
                     </Nav>
+
                     <Nav>
                         {
                             user
                                 ?
                                 <>
-                                    <Navbar.Text>{user.username} |</Navbar.Text>
+                                    <Dropdown>
+                                        <Dropdown.Toggle
+                                            variant="light"
+                                            align="end"
+                                            title="Dropdown end"
+                                            id="dropdown-menu-align-end"
+                                        // className='custom-navbar'
+                                        >
+                                            {/* {user.username} */}
+                                            <img src={user.avatar} alt={user.username} className='profileButtonImage' />
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Link to="/profile">
+                                                <Dropdown.Item as="span" >Profile</Dropdown.Item>
+                                            </Link>
+                                            <Link to="/profile">
+                                                <Dropdown.Item as="span" >My events</Dropdown.Item>
+                                            </Link>
+                                            <Dropdown.Divider />
+                                            <Link to="/">
+                                                <Dropdown.Item as="span" onClick={logout}>Log out</Dropdown.Item>
+                                            </Link>
+                                        </Dropdown.Menu>
+
+                                    </Dropdown>
+                                    {/*<Navbar.Text>{user.username} |</Navbar.Text>
                                     <Link to="/">
                                         <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
-                                    </Link>
+                                    </Link> */}
                                 </>
                                 :
                                 <>
@@ -46,6 +72,7 @@ const Navigation = () => {
                                 </>
                         }
                     </Nav>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>

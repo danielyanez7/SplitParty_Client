@@ -1,0 +1,13 @@
+.custom-navbar {
+    background-color: #011627;
+    /* set your desired background color */
+}
+
+
+.profileButtonImage {
+    width: 1.5em;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: #fff;
+}
