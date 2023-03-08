@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Form, ListGroup, Button, Row, Col } from "react-bootstrap"
 import productsService from "../../services/products.services"
 
-const ProductSelector = ({ handleProductsChange }) => {
+const ProductSelector = ({ handleProductsChange, handleNext }) => {
 
     const [products, setProducts] = useState([])
     const [search, setSearch] = useState("");
-    const [selectedProducts, setSelectedProducts] = useState([]);
+    const [selectedProducts, setSelectedProducts] = useState([])
 
     useEffect(() => {
         loadProducts()
@@ -60,9 +60,8 @@ const ProductSelector = ({ handleProductsChange }) => {
         <Row>
             <Form.Group
                 as={Col}
-                className="mb-3"
+                className="m-3"
                 controlId="selectedProducts"
-            // onChange={handleProductsChange(selectedProducts)}
             >
                 <Form.Label>Products</Form.Label>
                 <Form.Control
@@ -81,30 +80,36 @@ const ProductSelector = ({ handleProductsChange }) => {
                             action
                             as="div"
                         >
-                            {product.brand} - {product.name}
+                            {product.name} - <strong>{product.price}€</strong>
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
             </Form.Group>
 
-            <Form.Group as={Col} className="mb-3" controlId="selectedProductsList">
+            <Form.Group as={Col} className="m-3" controlId="selectedProductsList">
                 <Form.Label>Selected Products</Form.Label>
                 <ListGroup className="mt-3" >
                     {selectedProducts.map((product) => (
 
                         <ListGroup.Item key={product.id}>
-                            {product.name}
-                            <Form.Control
-                                type="number"
-                                min={1}
-                                value={product.quantity}
-                                onChange={(e) => handleProductQuantityChange(product, e.target.value)}
-                                className="ms-3"
-                            />
+                            <Row>
+                                <Col md={{ span: 8 }}>
+                                    {product.name} - <strong>{product.price}€</strong>
+                                </Col>
+                                <Col md={{ span: 4 }}>
+                                    <Form.Control
+                                        type="number"
+                                        min={1}
+                                        value={product.quantity}
+                                        onChange={(e) => handleProductQuantityChange(product, e.target.value)}
+                                        className="ms-1"
+                                    />
+                                </Col>
+                            </Row>
                             <Button
                                 variant="danger"
                                 size="sm"
-                                className="ms-3"
+                                className="m-2"
                                 onClick={() => handleProductRemove(product)}
                             >
                                 Remove
@@ -112,9 +117,12 @@ const ProductSelector = ({ handleProductsChange }) => {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
+                <Button variant="dark" onClick={handleNext} className="m-2">
+                    Next
+                </Button>
             </Form.Group>
         </Row>
     );
 };
 
-export default ProductSelector;
+export default ProductSelector
