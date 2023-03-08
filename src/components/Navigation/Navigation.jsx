@@ -9,7 +9,7 @@ const Navigation = () => {
     const { user, logout } = useContext(AuthContext)
 
     return (
-        <Navbar variant="dark" expand="md" className='mb-4 custom-navbar'>
+        <Navbar variant="light" expand="md" className='mb-4 custom-navbar'>
             <Container>
                 <Navbar.Brand href="/">Split Party</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

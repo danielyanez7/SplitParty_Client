@@ -1,8 +1,17 @@
+/* 
+Colores base
+- Black: #060606 
+- Grey: #24272C
+- Wite bone: #FEFAF1
+- Spring green: #68FE9A
+- Purple: #8956F1
+*/
+
 a {
   text-decoration: none;
-  color: inherit
+  color: #8956F1
 }
 
 .nav-link:not(.active) {
-  color: gray;
+  color: #24272C;
 }
