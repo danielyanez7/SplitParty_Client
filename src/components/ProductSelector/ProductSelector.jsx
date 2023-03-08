@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react"
 import { Form, ListGroup, Button, Row, Col } from "react-bootstrap"
 import productsService from "../../services/products.services"
 
-const ProductSelector = ({ onSelect }) => {
+const ProductSelector = ({ handleProductsChange }) => {
 
     const [products, setProducts] = useState([])
+    const [search, setSearch] = useState("");
+    const [selectedProducts, setSelectedProducts] = useState([]);
 
     useEffect(() => {
         loadProducts()
-    }, [])
+        handleProductsChange(selectedProducts)
+    }, [selectedProducts])
 
     const loadProducts = () => {
         productsService
@@ -19,8 +22,7 @@ const ProductSelector = ({ onSelect }) => {
             .catch(err => console.log(err))
     }
 
-    const [search, setSearch] = useState("");
-    const [selectedProducts, setSelectedProducts] = useState([]);
+
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
@@ -37,7 +39,8 @@ const ProductSelector = ({ onSelect }) => {
             const indexOfProduct = products.indexOf(product)
             products.splice(indexOfProduct, 1)
 
-            setSelectedProducts([...selectedProducts, { ...product, quantity: 1 }]);
+            setSelectedProducts([...selectedProducts, { ...product, quantity: 1 }])
+
         }
     }
 
@@ -55,7 +58,12 @@ const ProductSelector = ({ onSelect }) => {
 
     return (
         <Row>
-            <Form.Group as={Col} className="mb-3" controlId="selectedProducts">
+            <Form.Group
+                as={Col}
+                className="mb-3"
+                controlId="selectedProducts"
+            // onChange={handleProductsChange(selectedProducts)}
+            >
                 <Form.Label>Products</Form.Label>
                 <Form.Control
                     type="text"
@@ -67,27 +75,30 @@ const ProductSelector = ({ onSelect }) => {
                     {filteredProducts.map((product) => (
                         <ListGroup.Item
                             key={product.id}
-                            onClick={() => handleProductSelect(product)}
+                            onClick={() => {
+                                handleProductSelect(product)
+                            }}
                             action
+                            as="div"
                         >
                             {product.brand} - {product.name}
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
             </Form.Group>
+
             <Form.Group as={Col} className="mb-3" controlId="selectedProductsList">
                 <Form.Label>Selected Products</Form.Label>
-                <ListGroup className="mt-3">
+                <ListGroup className="mt-3" >
                     {selectedProducts.map((product) => (
+
                         <ListGroup.Item key={product.id}>
                             {product.name}
                             <Form.Control
                                 type="number"
                                 min={1}
                                 value={product.quantity}
-                                onChange={(e) =>
-                                    handleProductQuantityChange(product, e.target.value)
-                                }
+                                onChange={(e) => handleProductQuantityChange(product, e.target.value)}
                                 className="ms-3"
                             />
                             <Button

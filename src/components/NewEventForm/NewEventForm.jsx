@@ -27,6 +27,7 @@ const NewEventForm = () => {
     }
 
     const handleFormSubmit = e => {
+
         e.preventDefault()
 
         eventsService
@@ -38,9 +39,7 @@ const NewEventForm = () => {
     }
 
     const handleProductsChange = (products) => {
-        setSelectedProducts(products)
         setFormData({ ...formData, products })
-        console.log(selectedProducts)
     };
 
     return (
@@ -107,13 +106,15 @@ const NewEventForm = () => {
                 </Tab>
 
                 <Tab eventKey="products" title="Products">
+
                     <Form.Group className="mb-3" controlId="products">
-                        <Form.Label>Select products</Form.Label>
-                        <ProductSelector onProductsChange={handleProductsChange} />
+                        <ProductSelector handleProductsChange={handleProductsChange} />
                     </Form.Group>
+
                     <Button variant="dark" onClick={handleNext}>
                         Next
                     </Button>
+
                 </Tab>
 
                 <Tab eventKey="confirm" title="Confirmation">
@@ -131,13 +132,10 @@ const NewEventForm = () => {
                                 </Col>
                                 <Col>
                                     <Card.Text>Selected Products:</Card.Text>
-                                    <ListGroup>
-                                        {selectedProducts.map((product) => (
-                                            <ListGroup.Item key={product.id}>
-                                                {product.name} - {product.quantity}
-                                            </ListGroup.Item>
-                                        ))}
-                                    </ListGroup>
+                                    {formData.products && formData.products.map(product => {
+                                        return product.name
+                                    })}
+
                                 </Col>
                             </Row>
                             <Button variant="dark" type="submit">Confirm</Button>
