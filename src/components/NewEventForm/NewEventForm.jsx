@@ -6,6 +6,7 @@ import ProductSelector from "./ProductTab"
 import BasicInfoTab from "./BasicInfoTab"
 import DetailsTab from "./DetailsTab"
 import ConfirmTab from "./ConfirmTab"
+import FormError from "../FormError/FormError"
 
 const NewEventForm = () => {
 
@@ -14,6 +15,7 @@ const NewEventForm = () => {
     const [formData, setFormData] = useState({})
     const [activeTab, setActiveTab] = useState("basic")
     const [lastTab, setLastTab] = useState(false)
+    const [errors, setErrors] = useState([])
 
     const handleNext = () => {
         const tabs = ["basic", "details", "products", "confirm"]
@@ -35,12 +37,12 @@ const NewEventForm = () => {
             .then(({ data }) => {
                 navigate('/events')
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const handleProductsChange = (products) => {
         setFormData({ ...formData, products })
-    };
+    }
 
     return (
         <Form onSubmit={handleFormSubmit}>
@@ -83,9 +85,10 @@ const NewEventForm = () => {
                 </Tab>
 
             </Tabs>
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
         </Form>
     );
 };
 
-export default NewEventForm;
+export default NewEventForm
 
