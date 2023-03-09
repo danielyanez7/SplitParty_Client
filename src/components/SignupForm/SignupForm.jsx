@@ -2,12 +2,13 @@ import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import authService from "../../services/auth.service"
+import uploadServices from "../../services/upload.service"
 
 
 
 const SignupForm = () => {
 
-    const [signupData, setsignupData] = useState({
+    const [signupData, setSignUpData] = useState({
         username: '',
         email: '',
         password: '',
@@ -19,7 +20,7 @@ const SignupForm = () => {
     const handleInputChange = e => {
 
         const { value, name } = e.target
-        setsignupData({ ...signupData, [name]: value })
+        setSignUpData({ ...signupData, [name]: value })
 
     }
 
@@ -31,6 +32,20 @@ const SignupForm = () => {
             .signup(signupData)
             .then(() => navigate('/login'))
             .catch(err => console.log(err))
+    }
+
+    const handleFileUpload = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setSignUpData({ ...signupData, avatar: res.data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+
     }
 
     const { username, email, password, avatar } = signupData
@@ -55,7 +70,7 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="avatar">
                 <Form.Label>Avatar</Form.Label>
-                <Form.Control type="file" name="avatar" value={avatar} onChange={handleInputChange} />
+                <Form.Control type="file" name="avatar" onChange={handleFileUpload} />
             </Form.Group>
 
 
