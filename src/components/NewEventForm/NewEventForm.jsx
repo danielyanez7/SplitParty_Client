@@ -42,7 +42,7 @@ const NewEventForm = () => {
 
     const handleProductsChange = (products) => {
         setFormData({ ...formData, products })
-    };
+    }
 
     return (
         <Form onSubmit={handleFormSubmit}>
@@ -90,5 +90,5 @@ const NewEventForm = () => {
     );
 };
 
-export default NewEventForm;
+export default NewEventForm
 
