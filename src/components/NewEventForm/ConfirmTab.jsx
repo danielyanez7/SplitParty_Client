@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, Row, Col, Button } from "react-bootstrap"
+import { Card, Row, Col, Button, Table } from "react-bootstrap"
 
 const ConfirmTab = ({ formData, handleFormSubmit }) => {
     let total = 0
@@ -24,38 +24,38 @@ const ConfirmTab = ({ formData, handleFormSubmit }) => {
                     </Row>
                     <Card.Text>Description: {formData.description}</Card.Text>
 
-                    <Card.Text>Selected Products:</Card.Text>
-                    <table>
+                    <Table striped bordered hover size="sm">
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Cost</th>
+                                <th style={{ textAlign: 'center' }}>Quantity</th>
+                                <th style={{ textAlign: 'center' }}>Cost</th>
                             </tr>
                         </thead>
                         <tbody>
                             {formData.products &&
-                                formData.products.map((product) => {
-                                    const cost = product.price * product.quantity
-                                    total += cost
+                                formData.products.map((product, index) => {
+                                    const cost = product.price * product.quantity;
+                                    total += cost;
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <td>{product.name}</td>
-                                            <td>{product.quantity}</td>
-                                            <td><strong>{cost}€</strong></td>
+                                            <td style={{ textAlign: 'center' }}>{product.quantity}</td>
+                                            <td style={{ textAlign: 'center' }}>
+                                                <strong>{cost.toFixed(2)}€</strong>
+                                            </td>
                                         </tr>
-                                    )
+                                    );
                                 })}
-
-                        </tbody>
-                        <tfoot>
                             <tr>
                                 <td>Total</td>
-                                <td> </td>
-                                <td><strong>{total}€</strong></td>
+                                <td></td>
+                                <td style={{ textAlign: 'center' }}>
+                                    <strong>{total.toFixed(2)}€</strong>
+                                </td>
                             </tr>
-                        </tfoot>
-                    </table>
+                        </tbody>
+                    </Table>
                     <Button variant="dark" type="submit" onClick={handleFormSubmit} className="mt-4">
                         Confirm
                     </Button>
