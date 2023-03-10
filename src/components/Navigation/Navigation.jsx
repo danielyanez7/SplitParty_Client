@@ -18,6 +18,9 @@ const Navigation = () => {
                         <Link to="/events">
                             <Nav.Link as="span">Event List</Nav.Link>
                         </Link>
+                        <Link to="/users">
+                            <Nav.Link as="span">Community</Nav.Link>
+                        </Link>
 
                         {
                             user
