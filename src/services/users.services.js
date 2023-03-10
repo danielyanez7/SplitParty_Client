@@ -24,7 +24,7 @@ class UsersService {
         return this.api.get('/getAllUsers')
     }
 
-    getOneUser() {
+    getOneUser(user_id) {
         return this.api.get(`/getOneUser/${user_id}`)
     }
 

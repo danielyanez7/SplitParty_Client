@@ -1,22 +1,22 @@
 import { Col, Row } from "react-bootstrap"
-import EventCard from "../EventCard/EventCard"
+import UserCard from "../UserCard/UserCard"
 
-const EventList = ({ events }) => {
+
+const UsersList = ({ users }) => {
 
     return (
         <Row>
             {
-                events.map(elm => {
+                users.map(elm => {
                     return (
                         <Col md={{ span: 6 }} key={elm._id} className='p-2'>
-                            <EventCard elm={elm} />
+                            <UserCard elm={elm} />
                         </Col>
                     )
                 })
             }
         </Row>
-
     )
 }
 
-export default EventList
+export default UsersList

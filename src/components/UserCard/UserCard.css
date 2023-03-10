@@ -1,0 +1,13 @@
+.card:hover .btn-group {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-group {
+  opacity: 0;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
