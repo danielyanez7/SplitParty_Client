@@ -34,13 +34,13 @@ const ConfirmTab = ({ formData, handleFormSubmit }) => {
                         </thead>
                         <tbody>
                             {formData.products &&
-                                formData.products.map((product, index) => {
-                                    const cost = product.price * product.quantity
+                                formData.products.map((elm) => {
+                                    const cost = elm.product.price * elm.quantity
                                     total += cost
                                     return (
-                                        <tr key={index}>
-                                            <td>{product.name}</td>
-                                            <td style={{ textAlign: 'center' }}>{product.quantity}</td>
+                                        <tr key={elm.product._id}>
+                                            <td>{elm.product.name}</td>
+                                            <td style={{ textAlign: 'center' }}>{elm.quantity}</td>
                                             <td style={{ textAlign: 'center' }}>
                                                 <strong>{cost.toFixed(2)}€</strong>
                                             </td>

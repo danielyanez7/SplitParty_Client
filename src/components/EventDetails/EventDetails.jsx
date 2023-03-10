@@ -2,11 +2,10 @@ import './EventDetails.css'
 import { Card, ListGroup, Row, Col, Table } from 'react-bootstrap';
 
 const EventDetails = ({ event }) => {
+
     let total = 0
     const date = new Date(event.date);
     const formatDate = date.toDateString()
-
-    console.log(event.products)
 
     return (
         <ListGroup variant="flush">
@@ -41,26 +40,33 @@ const EventDetails = ({ event }) => {
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th style={{ textAlign: 'center' }}>Name</th>
                             <th style={{ textAlign: 'center' }}>Quantity</th>
                             <th style={{ textAlign: 'center' }}>Cost</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        {event.products && event.products.map((elm, index) => (
-                            <tr key={index}>
-                                <td>
-                                    {elm._id}
-                                </td>
-                                <td style={{ textAlign: 'center' }}>
-                                    {elm.quantity}
-                                </td>
-                                {/* <td style={{ textAlign: 'center' }}>
-                                    <strong>{elm.product.price.toFixed(2)}€</strong>
-                                </td> */}
-                            </tr>
-                        ))}
+                        {event.products && event.products.map((elm) => {
+
+                            total += elm.product.price * elm.quantity
+
+                            return (
+                                <tr key={elm.product._id}>
+                                    <td>
+                                        {elm.product.name}
+                                    </td>
+                                    <td style={{ textAlign: 'center' }}>
+                                        {elm.quantity}
+                                    </td>
+                                    <td style={{ textAlign: 'center' }}>
+                                        <strong>{(elm.product.price * elm.quantity).toFixed(2)}€</strong>
+                                    </td>
+                                </tr>
+                            )
+                        }
+
+                        )}
                         <tr>
                             <td>Total</td>
                             <td></td>

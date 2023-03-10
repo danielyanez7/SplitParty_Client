@@ -18,6 +18,7 @@ const NewEventForm = () => {
     const [errors, setErrors] = useState([])
 
     const handleNext = () => {
+
         const tabs = ["basic", "details", "products", "confirm"]
         const currentIndex = tabs.indexOf(activeTab)
 

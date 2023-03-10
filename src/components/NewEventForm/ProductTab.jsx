@@ -10,6 +10,9 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
 
     useEffect(() => {
         loadProducts()
+    }, [])
+
+    useEffect(() => {
         handleProductsChange(selectedProducts)
     }, [selectedProducts])
 
@@ -39,21 +42,36 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
             const indexOfProduct = products.indexOf(product)
             products.splice(indexOfProduct, 1)
 
-            setSelectedProducts([...selectedProducts, { ...product, quantity: 1 }])
+            setSelectedProducts([...selectedProducts, { product: product, quantity: 1 }])
 
         }
     }
 
-    const handleProductRemove = (product) => {
-        products.push(product)
-        setSelectedProducts(selectedProducts.filter((p) => p !== product));
+    const handleProductRemove = (elm) => {
+        products.push(elm.product)
+        products.sort((a, b) => {
+
+            const nameA = a.name
+            const nameB = b.name
+
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        })
+
+
+        setSelectedProducts(selectedProducts.filter((p) => p !== elm));
     }
 
     const handleProductQuantityChange = (product, quantity) => {
         const updatedSelectedProducts = selectedProducts.map((p) =>
             p === product ? { ...p, quantity } : p
-        );
-        setSelectedProducts(updatedSelectedProducts);
+        )
+        setSelectedProducts(updatedSelectedProducts)
     }
 
     return (
@@ -73,7 +91,7 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
                 <ListGroup className="mt-3">
                     {filteredProducts.map((product) => (
                         <ListGroup.Item
-                            key={product.id}
+                            key={product._id}
                             onClick={() => {
                                 handleProductSelect(product)
                             }}
@@ -89,28 +107,31 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
             <Form.Group as={Col} className="m-3" controlId="selectedProductsList">
                 <Form.Label>Selected Products</Form.Label>
                 <ListGroup className="mt-3" >
-                    {selectedProducts.map((product) => (
+                    {selectedProducts.map((elm) => (
 
-                        <ListGroup.Item key={product.id}>
+                        <ListGroup.Item key={elm.product._id}>
                             <Row>
                                 <Col md={{ span: 8 }}>
-                                    {product.name} - <strong>{product.price}€</strong>
+                                    {elm.product.name} - <strong>{elm.product.price}€</strong>
                                 </Col>
+
                                 <Col md={{ span: 4 }}>
                                     <Form.Control
                                         type="number"
                                         min={1}
-                                        value={product.quantity}
-                                        onChange={(e) => handleProductQuantityChange(product, e.target.value)}
+                                        value={elm.quantity}
+                                        onChange={(e) => handleProductQuantityChange(elm, e.target.value)}
                                         className="ms-1"
                                     />
                                 </Col>
+
                             </Row>
+
                             <Button
                                 variant="danger"
                                 size="sm"
                                 className="m-2"
-                                onClick={() => handleProductRemove(product)}
+                                onClick={() => handleProductRemove(elm)}
                             >
                                 Remove
                             </Button>
