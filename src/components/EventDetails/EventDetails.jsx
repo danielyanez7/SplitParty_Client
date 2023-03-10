@@ -1,10 +1,12 @@
 import './EventDetails.css'
-import { Card, ListGroup, Row, Col } from 'react-bootstrap';
+import { Card, ListGroup, Row, Col, Table } from 'react-bootstrap';
 
 const EventDetails = ({ event }) => {
-
+    let total = 0
     const date = new Date(event.date);
     const formatDate = date.toDateString()
+
+    console.log(event.products)
 
     return (
         <ListGroup variant="flush">
@@ -34,13 +36,51 @@ const EventDetails = ({ event }) => {
                     </Row>
                     <Card.Text>Description: {event.description}</Card.Text>
                 </Card.Body>
-                {event.products?.map(elm => {
-                    return <p>{elm}</p>
-                })}
 
+
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th style={{ textAlign: 'center' }}>Quantity</th>
+                            <th style={{ textAlign: 'center' }}>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {event.products && event.products.map((elm, index) => (
+                            <tr key={index}>
+                                <td>
+                                    {elm._id}
+                                </td>
+                                <td style={{ textAlign: 'center' }}>
+                                    {elm.quantity}
+                                </td>
+                                {/* <td style={{ textAlign: 'center' }}>
+                                    <strong>{elm.product.price.toFixed(2)}€</strong>
+                                </td> */}
+                            </tr>
+                        ))}
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td style={{ textAlign: 'center' }}>
+                                <strong>{total.toFixed(2)}€</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </Table>
             </ListGroup.Item>
         </ListGroup>
     )
 }
 
 export default EventDetails;
+
+
+// {
+//     event.products?.map(elm => {
+//         return <p>{elm.name}</p>
+//     })
+// } 

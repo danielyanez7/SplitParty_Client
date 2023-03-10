@@ -35,8 +35,8 @@ const ConfirmTab = ({ formData, handleFormSubmit }) => {
                         <tbody>
                             {formData.products &&
                                 formData.products.map((product, index) => {
-                                    const cost = product.price * product.quantity;
-                                    total += cost;
+                                    const cost = product.price * product.quantity
+                                    total += cost
                                     return (
                                         <tr key={index}>
                                             <td>{product.name}</td>
