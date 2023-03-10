@@ -8,6 +8,11 @@
 }
 
 .card:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(137, 85, 241, 0.3);
   transition: background-color 0.3s ease;
+}
+
+.card {
+  height: fit-content;
+  color: black;
 }
