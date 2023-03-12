@@ -32,6 +32,10 @@ class UsersService {
         return this.api.put(`/editUser/${user_id}`, userData)
     }
 
+    addFriend(currentUserId, friendId) {
+        return this.api.post(`/addFriend/${currentUserId}/${friendId}`)
+    }
+
     addEventToUser(user_id, event_id) {
         return this.api.put('/addEventToUser', (user_id, event_id))
     }

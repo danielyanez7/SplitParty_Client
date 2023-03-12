@@ -10,6 +10,7 @@ const BasicInformation = ({ formData, setFormData, handleNext }) => {
                     type="text"
                     name="name"
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
                 />
             </Form.Group>
             <Row>

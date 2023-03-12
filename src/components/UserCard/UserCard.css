@@ -1,18 +1,4 @@
-.card:hover .btn-group {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.btn-group {
-  opacity: 0;
-}
-
-.card:hover {
-  background-color: rgba(137, 85, 241, 0.3);
-  transition: background-color 0.3s ease;
-}
-
-.card {
+.userDetailsCard {
   height: fit-content;
   color: black;
 }
