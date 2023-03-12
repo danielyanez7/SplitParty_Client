@@ -32,6 +32,10 @@ class UsersService {
         return this.api.put(`/editUser/${user_id}`, userData)
     }
 
+    addEventToUser(user_id, event_id) {
+        return this.api.put('/addEventToUser', (user_id, event_id))
+    }
+
 }
 
 const usersService = new UsersService()

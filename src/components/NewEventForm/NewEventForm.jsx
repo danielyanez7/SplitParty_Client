@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Tabs, Tab, Form } from "react-bootstrap"
+
 import eventsService from "../../services/events.services"
+import usersService from "../../services/users.services"
+
 import ProductSelector from "./ProductTab"
 import BasicInfoTab from "./BasicInfoTab"
 import DetailsTab from "./DetailsTab"
@@ -36,7 +39,9 @@ const NewEventForm = () => {
         eventsService
             .saveEvent(formData)
             .then(({ data }) => {
-                navigate('/events')
+                console.log('Agregando el evento', data._id, 'al usuario', data.owner)
+                usersService.addEventToUser(data.owner, data._id)
+                navigate(`/events/${data._id}`)
             })
             .catch(err => setErrors(err.response.data.errorMessages))
     }
