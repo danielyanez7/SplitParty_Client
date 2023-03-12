@@ -9,6 +9,7 @@ const EventDetails = ({ event }) => {
 
     return (
         <ListGroup variant="flush">
+
             <ListGroup.Item className='eventDetailsBanner'
                 style={{
                     backgroundImage: `url(${event.banner})`,
@@ -19,6 +20,7 @@ const EventDetails = ({ event }) => {
                     <h1>{event.name}</h1>
                 </Card.Title>
             </ListGroup.Item>
+
             <ListGroup.Item>
                 <Card.Body>
                     <Card.Title>Name: {event.name}</Card.Title>
@@ -35,7 +37,6 @@ const EventDetails = ({ event }) => {
                     </Row>
                     <Card.Text>Description: {event.description}</Card.Text>
                 </Card.Body>
-
 
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -78,6 +79,7 @@ const EventDetails = ({ event }) => {
 
                 </Table>
             </ListGroup.Item>
+
         </ListGroup>
     )
 }
