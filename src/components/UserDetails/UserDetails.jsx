@@ -13,7 +13,7 @@ const UserDetails = ({ user }) => {
                 <Button variant="link">
                     <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" style={{ width: 20, height: 20 }} />
                 </Button>
-                <Button variant="link" onClick={handleAddFriendClick}>
+                <Button variant="link">
                     <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/user_check_icon_128710.png" alt="Agregar amigo" style={{ width: 20, height: 20 }} />
                 </Button>
             </div>
