@@ -32,6 +32,9 @@ class UsersService {
         return this.api.put(`/editUser/${user_id}`, userData)
     }
 
+    addFriend(currentUserId, friendId) {
+        return this.api.post(`/addFriend/${currentUserId}/${friendId}`)
+    }
 }
 
 const usersService = new UsersService()
