@@ -33,7 +33,7 @@ class UsersService {
     }
 
     addEventToUser(owner_id, event_id) {
-        return this.api.put('/addEventToUser', (owner_id, event_id))
+        return this.api.put('/addEventToUser', { owner_id, event_id })
     }
 
     addFriend(owner_id, user_id) {

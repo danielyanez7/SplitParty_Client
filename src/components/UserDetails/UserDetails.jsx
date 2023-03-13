@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Card, Row, Col, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import usersService from '../../services/users.services'
 import './UserDetails.css'
@@ -29,7 +30,7 @@ const UserDetails = ({ user }) => {
                         <Col>
                             <h1>{user.username}</h1>
                         </Col>
-                        <Col className='d-flex justify-content-end'>
+                        <Col className='d-flex justify-content-end align-items-center'>
 
                             {owner._id !== user._id
                                 ?
@@ -40,9 +41,9 @@ const UserDetails = ({ user }) => {
                                 </>
                                 :
                                 <>
-                                    <Button variant="link">
+                                    <Link variant="link" to={'/profile/edit'}>
                                         <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
-                                    </Button>
+                                    </Link>
                                     <Button variant="link">
                                         <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton' />
                                     </Button>

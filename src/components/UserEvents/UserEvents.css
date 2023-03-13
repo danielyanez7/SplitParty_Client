@@ -2,3 +2,9 @@
     aspect-ratio: 1/1;
     object-fit: cover;
 }
+
+.eventList {
+
+    width: inherit;
+    overflow-x: scroll;
+}

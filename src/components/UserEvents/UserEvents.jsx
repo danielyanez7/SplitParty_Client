@@ -19,7 +19,7 @@ const UserEvents = ({ friend }) => {
                     {
                         friend.events.map(event => {
                             return (
-                                <Col md={{ span: 6 }}  >
+                                <Col md={{ span: 6 }} className='d-grid ' >
                                     <EventCard event={event} />
                                 </Col>
                             )
