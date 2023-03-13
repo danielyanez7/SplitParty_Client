@@ -88,7 +88,7 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
                     value={search}
                     onChange={handleSearchChange}
                 />
-                <ListGroup className="mt-3">
+                <ListGroup className="mt-3" style={{ maxHeight: 'calc(100vh - 300px)', overflowY: 'scroll' }}>
                     {filteredProducts.map((product) => (
                         <ListGroup.Item
                             key={product._id}
@@ -106,7 +106,8 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
 
             <Form.Group as={Col} className="m-3" controlId="selectedProductsList">
                 <Form.Label>Selected Products</Form.Label>
-                <ListGroup className="mt-3" >
+                <ListGroup className="mt-3" style={{ maxHeight: 'calc(100vh - 300px)', overflowY: 'scroll' }}>
+
                     {selectedProducts.map((elm) => (
 
                         <ListGroup.Item key={elm.product._id}>

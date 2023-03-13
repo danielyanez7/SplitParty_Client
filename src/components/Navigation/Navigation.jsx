@@ -20,7 +20,7 @@ const Navigation = () => {
                             &&
                             <>
                                 <Link to="/events">
-                                    <Nav.Link as="span">Event List</Nav.Link>
+                                    <Nav.Link as="span">Events</Nav.Link>
                                 </Link>
 
                                 <Link to="/users">

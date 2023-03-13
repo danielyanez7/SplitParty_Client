@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Tabs, Tab, Form } from "react-bootstrap"
 
@@ -10,6 +10,7 @@ import BasicInfoTab from "./BasicInfoTab"
 import DetailsTab from "./DetailsTab"
 import ConfirmTab from "./ConfirmTab"
 import FormError from "../FormError/FormError"
+import { MessageContext } from "../../context/message.context"
 
 const NewEventForm = () => {
 
@@ -19,6 +20,7 @@ const NewEventForm = () => {
     const [activeTab, setActiveTab] = useState("basic")
     const [lastTab, setLastTab] = useState(false)
     const [errors, setErrors] = useState([])
+    const { emitMessage } = useContext(MessageContext)
 
     const handleNext = () => {
 
@@ -39,7 +41,7 @@ const NewEventForm = () => {
         eventsService
             .saveEvent(formData)
             .then(({ data }) => {
-                console.log('Agregando el evento', data._id, 'al usuario', data.owner)
+                emitMessage('Your event has been created')
                 usersService.addEventToUser(data.owner, data._id)
                 navigate(`/events/${data._id}`)
             })
@@ -53,7 +55,7 @@ const NewEventForm = () => {
     return (
         <Form onSubmit={handleFormSubmit}>
 
-            <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k)} className="flex-nowrap">
+            <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
 
                 <Tab eventKey="basic" title="Basic Information">
                     <BasicInfoTab

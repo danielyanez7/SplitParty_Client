@@ -15,12 +15,14 @@ import ProductDetailsPage from "../pages/ProductDetailsPage/ProductDetailsPage"
 import ProductEditPage from "../pages/ProductEditPage/ProductEditPage"
 import NewProductPage from "../pages/NewProductPage/NewProductPage"
 import ProtectedRoute from "./ProtectedRoutes"
+import HomePageLogin from "../pages/HomePageLogin/HomePageLogin"
 
 const AppRoutes = () => {
 
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/homepage" element={<HomePageLogin />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/users" element={<UsersListPage />} />

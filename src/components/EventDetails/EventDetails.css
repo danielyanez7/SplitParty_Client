@@ -1,8 +1,25 @@
 .eventDetailsBanner {
-    height: 200px;
-    display: grid;
-    place-items: center;
-    font-size: 2em;
-    color: white;
-    margin: none;
+  height: 200px;
+  display: grid;
+  place-items: center;
+}
+
+.eventDetailsBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.eventDetailsBanner h1 {
+  color: white;
+  font-size: 2em;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }

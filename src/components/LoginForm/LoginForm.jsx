@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
+import { MessageContext } from '../../context/message.context'
 import authService from '../../services/auth.service'
 
 const LoginForm = () => {
@@ -14,6 +15,8 @@ const LoginForm = () => {
     })
 
     const { authenticateUser, user } = useContext(AuthContext)
+    const { emitMessage } = useContext(MessageContext)
+
 
     const handleInputChange = e => {
 
@@ -30,7 +33,8 @@ const LoginForm = () => {
             .then(({ data }) => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser(data.authToken)
-                navigate('/')
+                emitMessage('Welcome again to SplitParty')
+                navigate('/homepage')
             })
             .catch(err => console.log(err))
     }
