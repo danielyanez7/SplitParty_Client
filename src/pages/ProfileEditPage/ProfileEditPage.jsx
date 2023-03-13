@@ -1,4 +1,4 @@
-import UserEditForm from "../../components/Navigation/UserEditForm/UserEditForm"
+import UserEditForm from "../../components/UserEditForm/UserEditForm"
 
 const ProfileEditPage = () => {
 

@@ -9,25 +9,24 @@ const Navigation = () => {
     const { user, logout } = useContext(AuthContext)
 
     return (
-        <Navbar variant="light" expand="md" className='mb-4 custom-navbar'>
+        <Navbar variant="light" expand="md" className='custom-navbar'>
             <Container>
                 <Navbar.Brand href="/">Split Party</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/events">
-                            <Nav.Link as="span">Event List</Nav.Link>
-                        </Link>
-                        <Link to="/users">
-                            <Nav.Link as="span">Community</Nav.Link>
-                        </Link>
-
                         {
                             user
                             &&
-                            <Link to="/events/create">
-                                <Nav.Link as="span">Create Event</Nav.Link>
-                            </Link>
+                            <>
+                                <Link to="/events">
+                                    <Nav.Link as="span">Event List</Nav.Link>
+                                </Link>
+
+                                <Link to="/users">
+                                    <Nav.Link as="span">Community</Nav.Link>
+                                </Link>
+                            </>
                         }
                     </Nav>
 
