@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import usersService from '../../services/users.services'
 import './UserDetails.css'
+import { MessageContext } from "../../context/message.context"
 
 
 const UserDetails = ({ user }) => {
 
     const { user: owner } = useContext(AuthContext)
+    const { emitMessage } = useContext(MessageContext)
 
     const addFriend = () => {
         usersService.addFriend(owner._id, user._id)
+        emitMessage('Congrats, you have a new friend!')
     }
 
     return (

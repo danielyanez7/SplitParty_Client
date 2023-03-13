@@ -1,3 +1,10 @@
+.background-image-hpl {
+  background-image: url("https://img.freepik.com/foto-gratis/plano-medio-jovenes-felices-fiesta_23-2149646121.jpg?w=900&t=st=1678719776~exp=1678720376~hmac=7fde7756e6d74afe8d4cd38ac0b069536d43f22c0847d2c6d010022a52ddd84e");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .grow{
     transition: .5s, color .10s;
         -webkit-transition: .5s, color .10s;
@@ -32,4 +39,12 @@
 
 .button-group p {
   margin: 0 1rem;
+}
+
+.box-opacity {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
 }
