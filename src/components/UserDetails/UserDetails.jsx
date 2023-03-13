@@ -10,7 +10,6 @@ const UserDetails = ({ user }) => {
     const { user: owner } = useContext(AuthContext)
 
     const addFriend = () => {
-        console.log('El owner:', owner._id, 'El user:', user._id)
         usersService.addFriend(owner._id, user._id)
     }
 

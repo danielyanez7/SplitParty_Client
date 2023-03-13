@@ -1,41 +1,37 @@
 import './EventCard.css'
-import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap"
+import { Button, Col, Row } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 
-const EventCard = ({ elm }) => {
+const EventCard = ({ event }) => {
 
-    const date = new Date(elm.date)
+    const date = new Date(event.date)
     const formatDate = date.toDateString()
 
+    const dateArray = formatDate.split(' ')
+
+    const joinEvent = () => {
+
+    }
+
     return (
-        <Container>
-            <Link to={`/events/${elm._id}`}>
+        <>
+            <Link to={`/events/${event._id}`}>
 
-                <Card className="p-2">
-                    <ListGroup variant="flush">
-                        <ListGroup.Item className='eventCardBanner'
-                            style={{
-                                backgroundImage: `url(${elm.banner})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}>
-                            <Card.Title>
-                                <h1>{elm.name}</h1>
-                            </Card.Title>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                            <Card.Body>
-                                <div className="eventCardBody">
-                                    <p className="eventCardDate">Date: {formatDate}</p>
-                                    <p className="eventCardDescription">{elm.description}</p>
-                                </div>
-                            </Card.Body>
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Card>
-
+                <Row className='p-2'>
+                    <Col md={{ span: 6 }} className='text-center align-self-center'>
+                        <p className='my-0'>{dateArray[0]}</p>
+                        <h2 className='my-0'>{dateArray[2]}</h2>
+                        <p className='my-0'>{dateArray[1]}. {dateArray[3]}</p>
+                    </Col>
+                    <Col md={{ span: 6 }} className='align-self-center'>
+                        <h3>{event.name}</h3>
+                    </Col>
+                </Row>
             </Link>
-        </Container>
+            <Row className='px-5'>
+                <Button variant="link" className='rounded-pill splitButton' onClick={joinEvent}>Join</Button>
+            </Row>
+        </>
     )
 }
 

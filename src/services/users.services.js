@@ -37,7 +37,11 @@ class UsersService {
     }
 
     addFriend(owner_id, user_id) {
-        return this.api.put('/addFriend', (owner_id, user_id))
+        return this.api.put('/addFriend', { owner_id, user_id })
+    }
+
+    getFriendsAndEvents() {
+        return this.api.get('/getFriendsAndEvents')
     }
 
 }

@@ -1,35 +1,36 @@
 import { useState, useEffect } from "react"
-import { Col, Container, Row } from "react-bootstrap"
-import EventCard from "../EventCard/EventCard"
-import eventsService from "../../services/events.services"
+import { Row } from "react-bootstrap"
+import usersService from "../../services/users.services"
+import UserEvents from "../UserEvents/UserEvents"
 
 const EventList = () => {
 
-    const [events, setEvetns] = useState([])
+    const [friends, setFriends] = useState([])
 
     useEffect(() => {
-        loadEvents()
+        loadFriendsAndEvents()
     }, [])
 
-    const loadEvents = () => {
-        eventsService
-            .getAllEvents()
-            .then(({ data }) => setEvetns(data))
+    const loadFriendsAndEvents = () => {
+
+        usersService
+            .getFriendsAndEvents()
+            .then(({ data }) => setFriends(data.friends))
             .catch(err => console.log(err))
     }
 
     return (
-        <Row>
+        <>
             {
-                events.map(elm => {
+                friends.map(friend => {
                     return (
-                        <Col md={{ span: 6 }} key={elm._id} className='p-2'>
-                            <EventCard elm={elm} />
-                        </Col>
+                        <Row md={{ span: 6 }} key={friend._id} className='p-3'>
+                            <UserEvents friend={friend} />
+                        </Row>
                     )
                 })
             }
-        </Row>
+        </>
 
     )
 }
