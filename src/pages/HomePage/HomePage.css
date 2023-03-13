@@ -42,13 +42,19 @@
   color:white;
 }
 
-
-
-.about-section, 
-.testimonials-section, 
-.contact-section {
+.about-section {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh; 
+}
+
+.about-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 3em;
+}
+
+.testimonial-image {
+  max-width: 200px;
 }

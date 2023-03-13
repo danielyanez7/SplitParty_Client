@@ -18,9 +18,9 @@ const EventDetailsPage = () => {
     }, [])
 
     return (
-        <Container>
+        <>
             <EventDetails event={event} />
-        </Container>
+        </>
     )
 }
 

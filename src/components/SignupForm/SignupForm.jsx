@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { MessageContext } from "../../context/message.context"
 import authService from "../../services/auth.service"
 import uploadServices from "../../services/upload.service"
 
@@ -16,6 +17,8 @@ const SignupForm = () => {
     })
 
     const navigate = useNavigate()
+    const { emitMessage } = useContext(MessageContext)
+
 
     const handleInputChange = e => {
 
@@ -30,7 +33,10 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(() => navigate('/login'))
+            .then(() => {
+                emitMessage('Welcome to SplitParty, please Log in')
+                navigate('/login')
+            })
             .catch(err => console.log(err))
     }
 
