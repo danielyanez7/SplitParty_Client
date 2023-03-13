@@ -1,5 +1,5 @@
 import './HomePage.css'
-import { Row, Col, Button, Carousel, Container, Image, Form } from 'react-bootstrap'
+import { Row, Col, Button, Carousel, Container, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
