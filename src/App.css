@@ -9,7 +9,7 @@ Colores base
 
 a {
   text-decoration: none;
-  color: #8955f1
+  color: rgb(137, 85, 241)
 }
 
 .nav-link:not(.active) {
