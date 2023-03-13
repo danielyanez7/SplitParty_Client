@@ -1,7 +1,16 @@
+import { useContext } from "react"
+import { Container } from "react-bootstrap"
+import UserDetails from "../../components/UserDetails/UserDetails"
+import { AuthContext } from "../../context/auth.context"
+
 const ProfilePage = () => {
 
+    const { user: owner } = useContext(AuthContext)
+
     return (
-        <h1>Profile Page</h1>
+        <Container>
+            <UserDetails user={owner} />
+        </Container>
     )
 }
 

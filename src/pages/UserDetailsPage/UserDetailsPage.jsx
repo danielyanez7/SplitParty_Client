@@ -20,15 +20,12 @@ const UserDetailsPage = () => {
             .then(({ data }) => setUser(data))
             .catch(err => console.log(err))
     }
+
     return (
         <Container>
-            <h1>User Details</h1>
-            <hr />
-            <Row>
-                <Col md={{ span: 6, offset: 1 }} className="centered">
-                    <UserDetails user={user} />
-                </Col>
-            </Row>
+
+            <UserDetails user={user} />
+
         </Container>
     )
 }

@@ -1,9 +1,9 @@
 import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { AuthContext } from "../../../context/auth.context"
-import uploadServices from "../../../services/upload.service"
-import usersService from "../../../services/users.services"
+import { AuthContext } from "../../context/auth.context"
+import uploadServices from "../../services/upload.service"
+import usersService from "../../services/users.services"
 
 
 const UserEditForm = () => {
