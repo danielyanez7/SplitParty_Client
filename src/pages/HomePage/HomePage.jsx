@@ -58,14 +58,14 @@ const HomePage = () => {
                         <Col lg={3}>
                             <div >
                                 <Image className="testimonial-image" src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678698156/jaime_hggwyo.png' alt="Testimonial 1" roundedCircle />
-                                <p className="testimonial-text">Siuuuu *inserte tono de voz que apenas se escuche*</p>
+                                <p className="testimonial-text">"Tiki Tiki"</p>
                                 <p className="testimonial-name">- Jaime Lloreda</p>
                             </div>
                         </Col>
                         <Col lg={3}>
                             <div >
                                 <Image className="testimonial-image" src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678698156/daniel_lzmvev.jpg' alt="Testimonial 2" roundedCircle />
-                                <p className="testimonial-text">Ah la $#!%a!</p>
+                                <p className="testimonial-text">"Miau Miau"</p>
                                 <p className="testimonial-name">- Daniel Yanez</p>
                             </div>
                         </Col>
