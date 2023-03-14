@@ -1,7 +1,7 @@
 import React from "react"
 import { Form, Button } from "react-bootstrap"
 
-const EventDetails = ({ handleNext, handleFormDataChange }) => {
+const DetailsEdit = ({ handleNext, handleInputChange, event }) => {
     return (
         <>
             <Form.Group className="m-3" controlId="description">
@@ -9,7 +9,8 @@ const EventDetails = ({ handleNext, handleFormDataChange }) => {
                 <Form.Control
                     as="textarea"
                     name="description"
-                    onChange={handleFormDataChange}
+                    value={event.description}
+                    onChange={handleInputChange}
                 />
             </Form.Group>
             <Form.Group className="m-3" controlId="location">
@@ -17,7 +18,8 @@ const EventDetails = ({ handleNext, handleFormDataChange }) => {
                 <Form.Control
                     type="text"
                     name="location"
-                    onChange={handleFormDataChange}
+                    value={event.location}
+                    onChange={handleInputChange}
                 />
             </Form.Group>
             <Button variant="dark" onClick={handleNext}>
@@ -27,4 +29,4 @@ const EventDetails = ({ handleNext, handleFormDataChange }) => {
     )
 }
 
-export default EventDetails
+export default DetailsEdit

@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import { Container, Row, Col, Button } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import eventsService from "../../services/events.services"
 import EventDetails from "../../components/EventDetails/EventDetails"

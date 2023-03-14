@@ -32,8 +32,8 @@ class EventsService {
         return this.api.get(`/getOneEvent/${event_id}`)
     }
 
-    editEvent(event_id) {
-        return this.api.get(`/editEvent/${event_id}`)
+    editEvent(event_id, eventData) {
+        return this.api.put(`/editEvent/${event_id}`, eventData)
     }
 
     deleteEvent(event_id) {
