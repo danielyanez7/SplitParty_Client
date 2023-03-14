@@ -36,6 +36,10 @@ class UsersService {
         return this.api.put('/addEventToUser', { owner_id, event_id })
     }
 
+    addEventToUser(owner_id, event_id) {
+        return this.api.put('/joinEvent', { owner_id, event_id })
+    }
+
     addFriend(owner_id, user_id) {
         return this.api.put('/addFriend', { owner_id, user_id })
     }

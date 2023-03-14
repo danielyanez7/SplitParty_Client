@@ -40,10 +40,8 @@ const Navigation = () => {
                                             variant="light"
                                             align="end"
                                             title="Dropdown end"
-                                            id="dropdown-menu-align-end"
-                                        // className='custom-navbar'
+                                            className='dropdownButton'
                                         >
-                                            {/* {user.username} */}
                                             <img src={user.avatar} alt={user.username} className='profileButtonImage' />
                                         </Dropdown.Toggle>
 

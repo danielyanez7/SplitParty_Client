@@ -1,16 +1,23 @@
 import './EventCard.css'
 import { Button, Col, Row } from "react-bootstrap"
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/auth.context'
+import usersService from '../../services/users.services'
+import { MessageContext } from "../../context/message.context"
 
 const EventCard = ({ event }) => {
 
+    const { user: owner } = useContext(AuthContext)
+    const { emitMessage } = useContext(MessageContext)
+
     const date = new Date(event.date)
     const formatDate = date.toDateString()
-
     const dateArray = formatDate.split(' ')
 
     const joinEvent = () => {
-
+        usersService.joinEvent(owner._id, event._id)
+        emitMessage(`We are waiting for you! See you att ${event.name}`)
     }
 
     return (
@@ -29,7 +36,9 @@ const EventCard = ({ event }) => {
                 </Row>
             </Link>
             <Row className='px-5 align-self-end'>
-                <Button variant="link" className='rounded-pill  splitButton' onClick={joinEvent}>Join</Button>
+                <Button variant="link" className='rounded-pill  splitButton' onClick={joinEvent}>
+                    Join
+                </Button>
             </Row>
         </>
     )

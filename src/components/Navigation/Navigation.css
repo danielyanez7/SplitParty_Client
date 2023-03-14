@@ -2,11 +2,20 @@
     background-color: #68FE9A;
 }
 
+.dropdownButton {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdownButton:hover {
+    background-color: transparent;
+    border: none;
+}
 
 .profileButtonImage {
-    width: 1.5em;
+    width: 2em;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
     background-color: #fff;
 }
