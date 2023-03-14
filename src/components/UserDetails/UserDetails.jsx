@@ -1,9 +1,9 @@
+import './UserDetails.css'
 import { useContext } from 'react'
 import { Card, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import usersService from '../../services/users.services'
-import './UserDetails.css'
 import { MessageContext } from "../../context/message.context"
 
 
