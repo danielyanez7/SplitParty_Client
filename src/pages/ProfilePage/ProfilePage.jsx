@@ -1,5 +1,7 @@
 import { useContext } from "react"
 import { Container } from "react-bootstrap"
+import JoinedEvents from "../../components/JoinedEvents/JoinedEvents"
+import MyEvents from "../../components/MyEvents/MyEvents"
 import UserDetails from "../../components/UserDetails/UserDetails"
 import { AuthContext } from "../../context/auth.context"
 
@@ -10,6 +12,8 @@ const ProfilePage = () => {
     return (
         <Container>
             <UserDetails user={owner} />
+            <MyEvents />
+            <JoinedEvents />
         </Container>
     )
 }

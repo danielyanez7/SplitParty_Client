@@ -3,8 +3,8 @@ import { Button, Col, Row } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
-import usersService from '../../services/users.services'
 import { MessageContext } from "../../context/message.context"
+import eventsService from '../../services/events.services'
 
 const EventCard = ({ event }) => {
 
@@ -16,7 +16,7 @@ const EventCard = ({ event }) => {
     const dateArray = formatDate.split(' ')
 
     const joinEvent = () => {
-        usersService.joinEvent(owner._id, event._id)
+        eventsService.joinEvent(owner._id, event._id)
         emitMessage(`We are waiting for you! See you att ${event.name}`)
     }
 

@@ -24,9 +24,12 @@ const EventList = () => {
             {
                 friends.map(friend => {
                     return (
-                        <Row md={{ span: 6 }} key={friend._id} className='p-3'>
-                            <UserEvents friend={friend} />
-                        </Row>
+                        <>
+                            <Row md={{ span: 6 }} className='p-3'>
+                                <UserEvents friend={friend} />
+                            </Row>
+                            <hr />
+                        </>
                     )
                 })
             }

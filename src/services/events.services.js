@@ -40,6 +40,18 @@ class EventsService {
         return this.api.get(`/deleteEvent/${event_id}`)
     }
 
+    getUserEvents() {
+        return this.api.get('/getUserEvents')
+    }
+
+    getJoinedEvents() {
+        return this.api.get('/getJoinedEvents')
+    }
+
+    joinEvent(owner_id, event_id) {
+        return this.api.put('/joinEvent', { owner_id, event_id })
+    }
+
 }
 
 const eventsService = new EventsService()

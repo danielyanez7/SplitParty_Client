@@ -4,6 +4,8 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import ProfileEditPage from "../pages/ProfileEditPage/ProfileEditPage"
+import MyEvents from "../components/MyEvents/MyEvents"
+import JoinedEvents from "../components/JoinedEvents/JoinedEvents"
 import UsersListPage from "../pages/UserListPage/UserListPage"
 import UserDetailsPage from "../pages/UserDetailsPage/UserDetailsPage"
 import EventsListPage from "../pages/EventsListPage/EventsListPage"
@@ -12,6 +14,7 @@ import EventDetailsPage from "../pages/EventDetailsPage/EventDetailsPage"
 import EventEditPage from "../pages/EventEditPage/EventEditPage"
 import ProtectedRoute from "./ProtectedRoutes"
 import HomePageLogin from "../pages/HomePageLogin/HomePageLogin"
+
 
 const AppRoutes = () => {
 

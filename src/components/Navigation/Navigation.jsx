@@ -49,9 +49,6 @@ const Navigation = () => {
                                             <Link to="/profile">
                                                 <Dropdown.Item as="span" >Profile</Dropdown.Item>
                                             </Link>
-                                            <Link to="/profile">
-                                                <Dropdown.Item as="span" >My events</Dropdown.Item>
-                                            </Link>
                                             <Dropdown.Divider />
                                             <Link to="/">
                                                 <Dropdown.Item as="span" onClick={logout}>Log out</Dropdown.Item>
