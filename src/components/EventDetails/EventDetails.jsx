@@ -1,5 +1,6 @@
 import './EventDetails.css'
-import { Container, Card, ListGroup, Row, Col, Table, Button } from 'react-bootstrap';
+import { Container, Card, ListGroup, Row, Col, Table, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const EventDetails = ({ event }) => {
 
@@ -23,7 +24,15 @@ const EventDetails = ({ event }) => {
                 </Card.Title>
             </ListGroup.Item>
             <Container>
-                <ListGroup.Item className='mt-5'>
+                <ListGroup.Item className='mt-5' style={{ position: 'relative' }}>
+
+                    <Link variant="link" to={`/events/${event._id}/edit`} style={{ position: 'absolute', top: 6, right: 70 }}>
+                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
+                    </Link>
+                    <Button variant="link" style={{ position: 'absolute', top: 0, right: 0 }}>
+                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton' />
+                    </Button>
+
                     <Row>
                         <Col md={{ span: 2 }} className='text-center align-self-center'>
                             <p className='my-0'>{dateArray[0]}</p>
@@ -78,16 +87,32 @@ const EventDetails = ({ event }) => {
 
                     </Table>
                     <Row>
-                        <Col><Button>Budget</Button></Col>
-                        <Col>{total.toFixed(2)}€</Col>
-                        <Col>  <p>Icon Whatsapp</p> </Col>
-                        <Col> <p>Contact Host</p> </Col>
+                        <Col md={3}>
+                            <div className="btn btn-dark">
+                                Budget
+                            </div>
+                        </Col>
+                        <Col md={3}>{total.toFixed(2)}€</Col>
+                        <Col md={6} style={{ textAlign: 'right' }}>
+                            <p>
+                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/whatsapp_icon-icons.com_65442.png" alt="Whatsapp Icon" className='social-media-img' />
+                                Contact Host
+                            </p>
+                        </Col>
                     </Row>
                     <Row>
-                        <Col><Button>Per Guest</Button></Col>
-                        <Col>{total.toFixed(2) / 5}€</Col>
-                        <Col>  <p>Icon Instagram</p> </Col>
-                        <Col> <p>#{event.name}{dateArray[2]}{dateArray[1]}</p> </Col>
+                        <Col md={3}>
+                            <div className="btn btn-dark">
+                                Per Guest
+                            </div>
+                        </Col>
+                        <Col md={3}>{total.toFixed(2) / 5}€</Col>
+                        <Col md={6} style={{ textAlign: 'right' }}>
+                            <p>
+                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img' />
+                                #{event.name?.split(" ").join('')}{dateArray[2]}{dateArray[1]}
+                            </p>
+                        </Col>
                     </Row>
                 </ListGroup.Item>
             </Container>
@@ -95,4 +120,4 @@ const EventDetails = ({ event }) => {
     )
 }
 
-export default EventDetails;
+export default EventDetails

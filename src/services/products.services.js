@@ -24,6 +24,10 @@ class ProductsService {
         return this.api.get('/getAllProducts')
     }
 
+    getEditProducts(productIds) {
+        return this.api.post('/getEditProducts', productIds)
+    }
+
     saveProduct() {
         return this.api.post('/saveProduct')
     }

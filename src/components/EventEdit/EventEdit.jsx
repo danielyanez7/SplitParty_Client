@@ -1,26 +1,46 @@
-import React, { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { Tabs, Tab, Form } from "react-bootstrap"
 
 import eventsService from "../../services/events.services"
 import usersService from "../../services/users.services"
 
-import ProductSelector from "./ProductTab"
-import BasicInfoTab from "./BasicInfoTab"
-import DetailsTab from "./DetailsTab"
-import ConfirmTab from "./ConfirmTab"
+import BasicInfoEdit from "./BasicInfoEdit"
+import DetailsEdit from "./DetailsEdit"
+import ProductsEdit from "./ProductsEdit"
+import ConfirmEdit from "./ConfirmEdit"
+
 import FormError from "../FormError/FormError"
 import { MessageContext } from "../../context/message.context"
 
-const NewEventForm = () => {
+const EventEdit = () => {
 
     const navigate = useNavigate()
 
+    const { id } = useParams()
+
+    const [event, setEvent] = useState({})
     const [formData, setFormData] = useState({})
     const [activeTab, setActiveTab] = useState("basic")
     const [lastTab, setLastTab] = useState(false)
     const [errors, setErrors] = useState([])
     const { emitMessage } = useContext(MessageContext)
+
+
+    useEffect(() => {
+        eventsService
+            .getOneEvent(id)
+            .then(({ data }) => setEvent(data))
+            .catch(err => console.log(err))
+    }, [])
+
+
+    const handleInputChange = e => {
+
+        const { value, name } = e.target
+        setEvent({ ...event, [name]: value })
+
+    }
 
     const handleNext = () => {
 
@@ -39,9 +59,9 @@ const NewEventForm = () => {
         e.preventDefault()
 
         eventsService
-            .saveEvent(formData)
+            .editEvent(id, event)
             .then(({ data }) => {
-                emitMessage('Your event has been created')
+                emitMessage('Your event has been edited')
                 usersService.addEventToUser(data.owner, data._id)
                 navigate(`/events/${data._id}`)
             })
@@ -49,7 +69,7 @@ const NewEventForm = () => {
     }
 
     const handleProductsChange = (products) => {
-        setFormData({ ...formData, products })
+        setEvent({ ...event, products: products })
     }
 
     return (
@@ -58,37 +78,38 @@ const NewEventForm = () => {
             <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
 
                 <Tab eventKey="basic" title="Basic Information">
-                    <BasicInfoTab
-                        formData={formData}
-                        setFormData={setFormData}
+                    <BasicInfoEdit
                         handleNext={handleNext}
+                        handleInputChange={handleInputChange}
+                        event={event}
                     />
                 </Tab>
 
 
                 <Tab eventKey="details" title="Event Details">
-                    <DetailsTab
-                        formData={formData}
+                    <DetailsEdit
                         handleNext={handleNext}
-                        handleFormDataChange={(e) =>
-                            setFormData({ ...formData, [e.target.name]: e.target.value })
-                        }
+                        handleInputChange={handleInputChange}
+                        event={event}
                     />
                 </Tab>
 
                 <Tab eventKey="products" title="Products">
-                    <ProductSelector
+                    <ProductsEdit
                         handleProductsChange={handleProductsChange}
+                        handleInputChange={handleInputChange}
                         handleNext={handleNext}
+                        event={event}
                     />
                 </Tab>
 
                 <Tab eventKey="confirm" title="Confirmation">
-                    <ConfirmTab
+                    <ConfirmEdit
                         formData={formData}
                         setFormData={setFormData}
                         handleNext={handleNext}
                         handleFormSubmit={handleFormSubmit}
+                        event={event}
                     />
                 </Tab>
 
@@ -98,5 +119,5 @@ const NewEventForm = () => {
     )
 }
 
-export default NewEventForm
+export default EventEdit
 
