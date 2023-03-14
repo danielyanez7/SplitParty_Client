@@ -10,10 +10,6 @@ import EventsListPage from "../pages/EventsListPage/EventsListPage"
 import NewEventPage from "../pages/NewEventPage/NewEventPage"
 import EventDetailsPage from "../pages/EventDetailsPage/EventDetailsPage"
 import EventEditPage from "../pages/EventEditPage/EventEditPage"
-import ProductsListPage from "../pages/ProductsListPage/ProductsListPage"
-import ProductDetailsPage from "../pages/ProductDetailsPage/ProductDetailsPage"
-import ProductEditPage from "../pages/ProductEditPage/ProductEditPage"
-import NewProductPage from "../pages/NewProductPage/NewProductPage"
 import ProtectedRoute from "./ProtectedRoutes"
 import HomePageLogin from "../pages/HomePageLogin/HomePageLogin"
 
@@ -29,16 +25,12 @@ const AppRoutes = () => {
             <Route path="/users/:id" element={<UserDetailsPage />} />
             <Route path="/events" element={<EventsListPage />} />
             <Route path="/events/:id" element={<EventDetailsPage />} />
-            <Route path="/products" element={<ProductsListPage />} />
-            <Route path="/products/:id" element={<ProductDetailsPage />} />
 
             <Route element={<ProtectedRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/profile/edit" element={<ProfileEditPage />} />
                 <Route path="/events/create" element={<NewEventPage />} />
                 <Route path="/events/:id/edit" element={<EventEditPage />} />
-                <Route path="/products/create" element={<NewProductPage />} />
-                <Route path="/products/:id/edit" element={<ProductEditPage />} />
             </Route>
 
             <Route path="*" element={<img src="https://www.acceseo.com/wp-content/uploads/2020/11/guia-errores-404.png" alt="" />} />
