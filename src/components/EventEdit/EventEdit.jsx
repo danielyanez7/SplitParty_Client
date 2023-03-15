@@ -13,6 +13,8 @@ import ConfirmEdit from "./ConfirmEdit"
 import FormError from "../FormError/FormError"
 import { MessageContext } from "../../context/message.context"
 
+import * as Constants from './../../consts'
+
 const EventEdit = () => {
 
     const navigate = useNavigate()
@@ -65,7 +67,7 @@ const EventEdit = () => {
         eventsService
             .editEvent(id, formData)
             .then(({ data }) => {
-                emitMessage('Your event has been edited')
+                emitMessage(Constants.EDITEVENT_MSG)
                 usersService.addEventToUser(data.owner, data._id)
                 navigate(`/events/${data._id}`)
             })

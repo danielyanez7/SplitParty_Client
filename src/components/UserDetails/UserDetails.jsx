@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import usersService from '../../services/users.services'
 import { MessageContext } from "../../context/message.context"
+import * as Constants from './../../consts'
 
 
 const UserDetails = ({ user }) => {
@@ -16,7 +17,7 @@ const UserDetails = ({ user }) => {
         usersService
             .addFriend(owner._id, user._id)
             .then(() => {
-                emitMessage('Congrats, you have a new friend!')
+                emitMessage(Constants.ADDFRIEND_MSG)
                 refreshToken()
             })
             .catch(err => console.log(err))
@@ -26,7 +27,7 @@ const UserDetails = ({ user }) => {
         usersService
             .deleteFriend(owner._id, user._id)
             .then(() => {
-                emitMessage('So sad, you are no longer friends!')
+                emitMessage(Constants.DELETEFRIEND_MSG)
                 refreshToken()
             })
             .catch(err => console.log(err))

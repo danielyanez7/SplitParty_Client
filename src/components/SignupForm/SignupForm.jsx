@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { MessageContext } from "../../context/message.context"
 import authService from "../../services/auth.service"
 import uploadServices from "../../services/upload.service"
-
+import * as Constants from './../../consts'
 
 
 const SignupForm = () => {
@@ -34,7 +34,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(() => {
-                emitMessage('Welcome to SplitParty, please Log in')
+                emitMessage(Constants.SIGNUP_MSG)
                 navigate('/login')
             })
             .catch(err => console.log(err))
