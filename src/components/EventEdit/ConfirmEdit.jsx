@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Card, Row, Col, Button, Table } from "react-bootstrap"
 
 const ConfirmEdit = ({ handleFormSubmit, formData }) => {
 
     let total = 0
+
+    const [date, setDate] = useState()
+
+    useEffect(() => {
+        formData.date && setDate(new Date(formData.date))
+    }, [formData])
 
     return (
         <>
@@ -15,7 +21,7 @@ const ConfirmEdit = ({ handleFormSubmit, formData }) => {
                     <Card.Title>Name: {formData.name}</Card.Title>
                     <Row>
                         <Col>
-                            <Card.Text>Date: {formData.date}</Card.Text>
+                            <Card.Text>Date: {date?.toISOString().substr(0, 10)}</Card.Text>
                         </Col>
                         <Col>
                             <Card.Text>Time: {formData.time}</Card.Text>
