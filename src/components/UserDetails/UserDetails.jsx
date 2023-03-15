@@ -9,23 +9,31 @@ import { MessageContext } from "../../context/message.context"
 
 const UserDetails = ({ user }) => {
 
-    const { user: owner } = useContext(AuthContext)
+    const { user: owner, refreshToken } = useContext(AuthContext)
     const { emitMessage } = useContext(MessageContext)
 
     const addFriend = () => {
-        usersService.addFriend(owner._id, user._id)
-        emitMessage('Congrats, you have a new friend!')
+        usersService
+            .addFriend(owner._id, user._id)
+            .then(() => {
+                emitMessage('Congrats, you have a new friend!')
+                refreshToken()
+            })
+            .catch(err => console.log(err))
     }
 
     const deleteFriend = () => {
-        usersService.deleteFriend(owner._id, user._id)
-        emitMessage('So sad, you are no longer friends!')
+        usersService
+            .deleteFriend(owner._id, user._id)
+            .then(() => {
+                emitMessage('So sad, you are no longer friends!')
+                refreshToken()
+            })
+            .catch(err => console.log(err))
     }
 
     const isOWner = owner?._id !== user._id
     const areFriends = owner.friends?.map(friend => friend.includes(user._id)).includes(true)
-
-    console.log(areFriends)
 
     return (
 
@@ -77,12 +85,11 @@ const UserDetails = ({ user }) => {
                         </Col>
                         <Col md={{ span: 12 }} className='mx-3'>
                             <h4>
-                                Friends
+                                Following
                             </h4>
                             {
                                 user.friends?.map(friend => {
                                     return <img src={friend.avatar} alt={friend.username} className='friendAvatar mx-2' />
-                                    //  <p>{friend.username}</p>
                                 })
                             }
                         </Col>

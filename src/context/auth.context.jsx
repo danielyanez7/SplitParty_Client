@@ -36,8 +36,22 @@ const AuthProviderWrapper = props => {
         authenticateUser()
     }, [])
 
+    const storedToken = (token) => {
+        localStorage.setItem('authToken', token)
+    }
+
+    const refreshToken = () => {
+        authService
+            .updateToken()
+            .then(({ data }) => {
+                storedToken(data)
+                authenticateUser()
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
-        <AuthContext.Provider value={{ authenticateUser, user, logout, loading }}>
+        <AuthContext.Provider value={{ authenticateUser, user, logout, loading, refreshToken }}>
             {props.children}
         </AuthContext.Provider>
     )

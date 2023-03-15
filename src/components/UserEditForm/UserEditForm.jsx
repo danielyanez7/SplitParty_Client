@@ -8,7 +8,7 @@ import usersService from "../../services/users.services"
 
 const UserEditForm = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, refreshToken } = useContext(AuthContext)
     const [userData, setUserData] = useState(user)
 
     const navigate = useNavigate()
@@ -28,7 +28,10 @@ const UserEditForm = () => {
 
         usersService
             .editUser(user._id, userData)
-            .then(() => navigate('/profile'))
+            .then(() => {
+                refreshToken()
+                navigate('/profile')
+            })
             .catch(err => console.log(err))
     }
 
