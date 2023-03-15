@@ -4,7 +4,7 @@ import EventList from "../../components/EventList/EventList"
 const EventsListPage = () => {
 
     return (
-        <Container className="pt-5">
+        <Container className="pt-3">
             <EventList />
         </Container>
     )

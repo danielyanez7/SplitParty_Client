@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const { user: owner } = useContext(AuthContext)
 
     return (
-        <Container>
+        <Container className="pt-3">
             <UserDetails user={owner} />
             <MyEvents />
             <JoinedEvents />

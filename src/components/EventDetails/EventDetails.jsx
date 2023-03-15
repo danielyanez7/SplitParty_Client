@@ -37,12 +37,15 @@ const EventDetails = ({ event }) => {
                         <Col md={{ span: 2 }} className='text-center align-self-center'>
                             <p className='my-0'>{dateArray[0]}</p>
                             <h2 className='my-0'>{dateArray[2]}</h2>
-                            <p className='my-0'>{dateArray[1]}. {dateArray[3]}</p>
+                            <h3 className='my-0'>{dateArray[1]}. {dateArray[3]}</h3>
                             <p>{event.time}</p>
                         </Col>
                         <Col md={{ span: 10 }}>
-                            <p> Location: <strong>{event.location}</strong>.</p>
                             <p> {event.description}</p>
+                            <p>
+                                <img src="https://cdn.icon-icons.com/icons2/1946/PNG/512/1904662-location-map-map-location-map-point-pin-place-placeholder_122512.png" alt="location" className='social-media-img mx-2' />
+                                <strong>{event.location}</strong>
+                            </p>
                         </Col>
                     </Row>
 
@@ -86,31 +89,35 @@ const EventDetails = ({ event }) => {
                         </tbody>
 
                     </Table>
+
                     <Row>
                         <Col md={3}>
-                            <div className="btn btn-dark">
+                            <div className="">
                                 Budget
                             </div>
                         </Col>
-                        <Col md={3}>{total.toFixed(2)}€</Col>
+                        <Col md={3}>
+                            {total.toFixed(2)}€
+                        </Col>
+
                         <Col md={6} style={{ textAlign: 'right' }}>
                             <p>
-                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/whatsapp_icon-icons.com_65442.png" alt="Whatsapp Icon" className='social-media-img' />
+                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/whatsapp_icon-icons.com_65442.png" alt="Whatsapp Icon" className='social-media-img mx-2' />
                                 Contact Host
                             </p>
                         </Col>
                     </Row>
                     <Row>
                         <Col md={3}>
-                            <div className="btn btn-dark">
+                            <div className="">
                                 Per Guest
                             </div>
                         </Col>
-                        <Col md={3}>{total.toFixed(2) / 5}€</Col>
+                        <Col md={3}>{(total / (event.guests?.length + 1)).toFixed(2)}€</Col>
                         <Col md={6} style={{ textAlign: 'right' }}>
                             <p>
-                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img' />
-                                #{event.name?.split(" ").join('')}{dateArray[2]}{dateArray[1]}
+                                <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img mx-2' />
+                                #{event.name?.split(' ').join('')}{dateArray[2]}{dateArray[1]}
                             </p>
                         </Col>
                     </Row>

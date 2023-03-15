@@ -8,3 +8,10 @@
     object-fit: cover;
     border: 5px solid #8956F1;
 }
+
+.friendAvatar {
+    width: 3em;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+}
