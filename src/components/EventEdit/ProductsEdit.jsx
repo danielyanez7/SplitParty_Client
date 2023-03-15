@@ -5,17 +5,17 @@ import productsService from "../../services/products.services"
 const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
 
     const [products, setProducts] = useState([])
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState('')
     const [selectedProducts, setSelectedProducts] = useState([])
     const [selectedProductsId, setSelectedProductsId] = useState([])
 
     useEffect(() => {
         setSelectedProducts(event?.products)
         setSelectedProductsId(selectedProducts?.map(elm => elm.product._id))
+        selectedProducts?.length > 0 && loadProducts(selectedProductsId)
     }, [event])
 
     useEffect(() => {
-        selectedProducts?.length > 0 && loadProducts(selectedProductsId)
     }, [selectedProductsId])
 
     useEffect(() => {

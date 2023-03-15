@@ -30,7 +30,10 @@ const EventEdit = () => {
     useEffect(() => {
         eventsService
             .getOneEvent(id)
-            .then(({ data }) => setEvent(data))
+            .then(({ data }) => {
+                setEvent(data)
+                setFormData(data)
+            })
             .catch(err => console.log(err))
     }, [])
 
@@ -38,7 +41,7 @@ const EventEdit = () => {
     const handleInputChange = e => {
 
         const { value, name } = e.target
-        setEvent({ ...event, [name]: value })
+        setFormData({ ...formData, [name]: value })
 
     }
 
@@ -59,7 +62,7 @@ const EventEdit = () => {
         e.preventDefault()
 
         eventsService
-            .editEvent(id, event)
+            .editEvent(id, formData)
             .then(({ data }) => {
                 emitMessage('Your event has been edited')
                 usersService.addEventToUser(data.owner, data._id)
@@ -69,7 +72,7 @@ const EventEdit = () => {
     }
 
     const handleProductsChange = (products) => {
-        setEvent({ ...event, products: products })
+        setFormData({ ...formData, products: products })
     }
 
     return (
@@ -81,7 +84,7 @@ const EventEdit = () => {
                     <BasicInfoEdit
                         handleNext={handleNext}
                         handleInputChange={handleInputChange}
-                        event={event}
+                        formData={formData}
                     />
                 </Tab>
 
@@ -90,7 +93,7 @@ const EventEdit = () => {
                     <DetailsEdit
                         handleNext={handleNext}
                         handleInputChange={handleInputChange}
-                        event={event}
+                        formData={formData}
                     />
                 </Tab>
 
@@ -99,14 +102,13 @@ const EventEdit = () => {
                         handleProductsChange={handleProductsChange}
                         handleInputChange={handleInputChange}
                         handleNext={handleNext}
-                        event={event}
+                        formData={formData}
                     />
                 </Tab>
 
                 <Tab eventKey="confirm" title="Confirmation">
                     <ConfirmEdit
                         formData={formData}
-                        setFormData={setFormData}
                         handleNext={handleNext}
                         handleFormSubmit={handleFormSubmit}
                         event={event}

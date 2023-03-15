@@ -1,10 +1,16 @@
 import React from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 
-const BasicInfoEdit = ({ handleNext, event, handleInputChange }) => {
+const BasicInfoEdit = ({ handleNext, formData, handleInputChange }) => {
 
-    const date = new Date(event.date)
-    const formatDate = date.toLocaleDateString("en-CA", { year: 'numeric', month: '2-digit', day: '2-digit' })
+    // const date = new Date(event.date)
+    // const formatDate = date.toLocaleDateString("en-CA", { year: 'numeric', month: '2-digit', day: '2-digit' })
+
+    // const handleDateChange = (event) => {
+    //     const isoDate = new Date(event.target.value).toISOString();
+    //     const date = isoDate.substring(0, 10);
+    //     handleInputChange({ target: { name: "date", value: date } });
+    // }
 
     return (
         <>
@@ -13,7 +19,7 @@ const BasicInfoEdit = ({ handleNext, event, handleInputChange }) => {
                 <Form.Control
                     type="text"
                     name="name"
-                    value={event.name}
+                    value={formData.name}
                     onChange={handleInputChange}
                     required
                 />
@@ -25,7 +31,7 @@ const BasicInfoEdit = ({ handleNext, event, handleInputChange }) => {
                         <Form.Control
                             type="date"
                             name="date"
-                            value={formatDate}
+                            value={formData.date}
                             onChange={handleInputChange}
                         />
                     </Form.Group>
@@ -36,7 +42,7 @@ const BasicInfoEdit = ({ handleNext, event, handleInputChange }) => {
                         <Form.Control
                             type="time"
                             name="time"
-                            value={event.time}
+                            value={formData.time}
                             onChange={handleInputChange}
                         />
                     </Form.Group>

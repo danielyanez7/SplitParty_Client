@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, Row, Col, Button, Table } from "react-bootstrap"
 
-const ConfirmEdit = ({ handleFormSubmit, event }) => {
+const ConfirmEdit = ({ handleFormSubmit, formData }) => {
 
     let total = 0
 
@@ -12,19 +12,19 @@ const ConfirmEdit = ({ handleFormSubmit, event }) => {
             <Card className="m-3 p-3">
 
                 <Card.Body>
-                    <Card.Title>Name: {event.name}</Card.Title>
+                    <Card.Title>Name: {formData.name}</Card.Title>
                     <Row>
                         <Col>
-                            <Card.Text>Date: {event.date}</Card.Text>
+                            <Card.Text>Date: {formData.date}</Card.Text>
                         </Col>
                         <Col>
-                            <Card.Text>Time: {event.time}</Card.Text>
+                            <Card.Text>Time: {formData.time}</Card.Text>
                         </Col>
                         <Col>
-                            <Card.Text>Location: {event.location}</Card.Text>
+                            <Card.Text>Location: {formData.location}</Card.Text>
                         </Col>
                     </Row>
-                    <Card.Text>Description: {event.description}</Card.Text>
+                    <Card.Text>Description: {formData.description}</Card.Text>
 
                     <Table striped bordered hover size="sm">
                         <thead>
@@ -35,8 +35,8 @@ const ConfirmEdit = ({ handleFormSubmit, event }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {event.products &&
-                                event.products.map((elm) => {
+                            {formData.products &&
+                                formData.products.map((elm) => {
                                     const cost = elm.product.price * elm.quantity
                                     total += cost
                                     return (
