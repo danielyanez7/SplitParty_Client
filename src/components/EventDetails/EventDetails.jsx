@@ -27,10 +27,10 @@ const EventDetails = ({ event }) => {
                 <ListGroup.Item className='mt-5' style={{ position: 'relative' }}>
 
                     <Link variant="link" to={`/events/${event._id}/edit`} style={{ position: 'absolute', top: 7, right: 70 }}>
-                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
+                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton' />
                     </Link>
                     <Button variant="link" style={{ position: 'absolute', top: 0, right: 0 }}>
-                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton' />
+                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton' />
                     </Button>
 
                     <Row>

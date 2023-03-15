@@ -16,6 +16,7 @@ const HomePage = () => {
 
     return (
         <>
+
             <section className="carousel-section custom-section-height">
                 <Row>
                     <Col className="carousel-container">
