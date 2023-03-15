@@ -1,8 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
 import EventEdit from "../../components/EventEdit/EventEdit"
-import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import eventsService from "../../services/events.services"
 
 const EventEditPage = () => {
 
