@@ -34,7 +34,7 @@ const LoginForm = () => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser(data.authToken)
                 emitMessage('Welcome again to SplitParty')
-                navigate('/homepage')
+                navigate('/')
             })
             .catch(err => console.log(err))
     }

@@ -36,9 +36,16 @@ const HomePage = () => {
                                 <hr />
                                 <p className="carousel-content__subtitle">Create, enjoy and split</p>
 
-                                <Link to="/events/create">
-                                    <Button className="carousel-content__button grow" variant="dark">Create your event</Button>
-                                </Link>
+
+                                <div className="button-group">
+                                    <Link to="/events/create">
+                                        <Button className="float" variant="dark">Create your event</Button>
+                                    </Link>
+
+                                    <Link to="/events">
+                                        <Button variant="dark" className='float'>Join a Friend Event</Button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </Col>
