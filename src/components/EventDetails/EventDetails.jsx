@@ -93,11 +93,15 @@ const EventDetails = ({ event }) => {
                     <Row>
                         <Col md={3}>
                             <div className="">
-                                Budget
+                                Guests
                             </div>
                         </Col>
                         <Col md={3}>
-                            {total.toFixed(2)}€
+                            {
+                                event.guests?.map(guest => {
+                                    return <p>{guest.username}</p>
+                                })
+                            }
                         </Col>
 
                         <Col md={6} style={{ textAlign: 'right' }}>
@@ -113,7 +117,7 @@ const EventDetails = ({ event }) => {
                                 Per Guest
                             </div>
                         </Col>
-                        <Col md={3}>{(total / (event.guests?.length + 1)).toFixed(2)}€</Col>
+                        <Col md={3}>{(total / (event.guests?.length + 1)).toFixed(2)}€ </Col>
                         <Col md={6} style={{ textAlign: 'right' }}>
                             <p>
                                 <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img mx-2' />

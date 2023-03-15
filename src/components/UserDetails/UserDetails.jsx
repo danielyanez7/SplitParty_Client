@@ -1,5 +1,5 @@
 import './UserDetails.css'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, } from 'react'
 import { Card, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
@@ -17,8 +17,15 @@ const UserDetails = ({ user }) => {
         emitMessage('Congrats, you have a new friend!')
     }
 
+    const deleteFriend = () => {
+        usersService.deleteFriend(owner._id, user._id)
+        emitMessage('So sad, you are no longer friends!')
+    }
+
     const isOWner = owner?._id !== user._id
-    const areFriends = owner.friends?.map(friend => friend.includes(user._id))
+    const areFriends = owner.friends?.map(friend => friend.includes(user._id)).includes(true)
+
+    console.log(areFriends)
 
     return (
 
@@ -43,7 +50,7 @@ const UserDetails = ({ user }) => {
                                 <>
                                     {areFriends
                                         ?
-                                        <Button variant="link" onClick={addFriend}>
+                                        <Button variant="link" onClick={deleteFriend}>
                                             <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/square_close_cross_icon_128691.png" alt="Add friend" className='detailsButton' />
                                         </Button>
                                         :

@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, } from "react-bootstrap"
 import UserDetails from "../../components/UserDetails/UserDetails"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
