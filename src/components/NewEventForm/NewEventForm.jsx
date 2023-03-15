@@ -11,6 +11,8 @@ import DetailsTab from "./DetailsTab"
 import ConfirmTab from "./ConfirmTab"
 import FormError from "../FormError/FormError"
 import { MessageContext } from "../../context/message.context"
+import * as Constants from './../../consts'
+
 
 const NewEventForm = () => {
 
@@ -41,7 +43,7 @@ const NewEventForm = () => {
         eventsService
             .saveEvent(formData)
             .then(({ data }) => {
-                emitMessage('Your event has been created')
+                emitMessage(Constants.NEWEVENT_MSG)
                 usersService.addEventToUser(data.owner, data._id)
                 navigate(`/events/${data._id}`)
             })

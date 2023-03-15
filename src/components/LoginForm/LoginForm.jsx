@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import { MessageContext } from '../../context/message.context'
 import authService from '../../services/auth.service'
+import * as Constants from './../../consts'
 
 const LoginForm = () => {
 
@@ -33,7 +34,7 @@ const LoginForm = () => {
             .then(({ data }) => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser(data.authToken)
-                emitMessage('Welcome again to SplitParty')
+                emitMessage(Constants.LOGGED_MSG)
                 navigate('/')
             })
             .catch(err => console.log(err))
