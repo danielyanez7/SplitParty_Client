@@ -30,7 +30,7 @@ const EventCard = ({ event }) => {
 
     return (
         <>
-            <Link to={`/events/${event._id}`}>
+            <Link to={`/events/${event._id}`} className="event-font-color">
 
                 <Row className='p-2'>
                     <Col md={{ span: 4 }} className='text-center align-self-center'>

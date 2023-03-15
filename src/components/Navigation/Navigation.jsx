@@ -11,7 +11,9 @@ const Navigation = () => {
     return (
         <Navbar variant="light" expand="md" className='custom-navbar'>
             <Container>
-                <Navbar.Brand href="/">Split Party</Navbar.Brand>
+                <Link to="/">
+                    <Navbar.Brand as="span">Split Party</Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
