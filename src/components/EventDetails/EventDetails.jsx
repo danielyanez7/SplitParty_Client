@@ -26,13 +26,6 @@ const EventDetails = ({ event }) => {
             <Container>
                 <ListGroup.Item className='mt-5' style={{ position: 'relative' }}>
 
-                    <Link variant="link" to={`/events/${event._id}/edit`} style={{ position: 'absolute', top: 7, right: 70 }}>
-                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
-                    </Link>
-                    <Button variant="link" style={{ position: 'absolute', top: 0, right: 0 }}>
-                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton' />
-                    </Button>
-
                     <Row>
                         <Col md={{ span: 2 }} className='text-center align-self-center'>
                             <p className='my-0'>{dateArray[0]}</p>
@@ -40,12 +33,20 @@ const EventDetails = ({ event }) => {
                             <h3 className='my-0'>{dateArray[1]}. {dateArray[3]}</h3>
                             <p>{event.time}</p>
                         </Col>
-                        <Col md={{ span: 10 }}>
+                        <Col md={{ span: 8 }}>
                             <p> {event.description}</p>
                             <p>
                                 <img src="https://cdn.icon-icons.com/icons2/1946/PNG/512/1904662-location-map-map-location-map-point-pin-place-placeholder_122512.png" alt="location" className='social-media-img mx-2' />
                                 <strong>{event.location}</strong>
                             </p>
+                        </Col>
+                        <Col md={{ span: 2 }} className='d-flex justify-content-end'>
+                            <Link variant="link" to={`/events/${event._id}/edit`}>
+                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton mx-2' />
+                            </Link>
+                            <Link variant="link" >
+                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton mx-2' />
+                            </Link>
                         </Col>
                     </Row>
 
