@@ -21,6 +21,7 @@ const EventEdit = () => {
 
     const [event, setEvent] = useState({})
     const [formData, setFormData] = useState({})
+
     const [activeTab, setActiveTab] = useState("basic")
     const [lastTab, setLastTab] = useState(false)
     const [errors, setErrors] = useState([])
@@ -102,6 +103,7 @@ const EventEdit = () => {
                         handleProductsChange={handleProductsChange}
                         handleInputChange={handleInputChange}
                         handleNext={handleNext}
+                        event={event}
                         formData={formData}
                     />
                 </Tab>

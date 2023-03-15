@@ -5,9 +5,9 @@ import productsService from "../../services/products.services"
 const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
 
     const [products, setProducts] = useState([])
-    const [search, setSearch] = useState('')
     const [selectedProducts, setSelectedProducts] = useState([])
     const [selectedProductsId, setSelectedProductsId] = useState([])
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         setSelectedProducts(event?.products)
@@ -47,7 +47,6 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
             products.splice(indexOfProduct, 1)
 
             setSelectedProducts([...selectedProducts, { product: product, quantity: 1 }])
-
         }
     }
 
@@ -89,7 +88,6 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
                 <Form.Control
                     type="text"
                     placeholder="Search products..."
-                    value={search}
                     onChange={handleSearchChange}
                 />
                 <ListGroup className="mt-3" style={{ maxHeight: 'calc(100vh - 300px)', overflowY: 'scroll' }}>

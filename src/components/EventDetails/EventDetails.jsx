@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const EventDetails = ({ event }) => {
 
     let total = 0
-    const date = new Date(event.date);
+    const date = new Date(event.date)
     const formatDate = date.toDateString()
 
     const dateArray = formatDate.split(' ')
@@ -26,7 +26,7 @@ const EventDetails = ({ event }) => {
             <Container>
                 <ListGroup.Item className='mt-5' style={{ position: 'relative' }}>
 
-                    <Link variant="link" to={`/events/${event._id}/edit`} style={{ position: 'absolute', top: 6, right: 70 }}>
+                    <Link variant="link" to={`/events/${event._id}/edit`} style={{ position: 'absolute', top: 7, right: 70 }}>
                         <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
                     </Link>
                     <Button variant="link" style={{ position: 'absolute', top: 0, right: 0 }}>
