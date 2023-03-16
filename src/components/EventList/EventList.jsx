@@ -1,3 +1,4 @@
+import './EventList.css'
 import { useState, useEffect } from "react"
 import usersService from "../../services/users.services"
 import UserEvents from "../UserEvents/UserEvents"
@@ -42,10 +43,10 @@ const EventList = () => {
                             )
                         })
                         :
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: '100vh' }}>
-                            <h5 style={{ textAlign: 'center', maxWidth: '100%' }}>Oh, so sad, you don't have friends, you can find some in our <Link>community</Link> or discover new friends at </h5>
-                            <Link to={"/users"} style={{ marginBottom: '1rem' }}>
-                                <img src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678962831/buscoAmigos_cuo9uh.png' alt='No friends' />
+                        <div className="event-list-center">
+                            <h5>Oh, so sad, you don't have friends, you can find some in our <Link to={"/users"} className="purple-text">community</Link> or discover new friends at </h5>
+                            <Link to={"/users"}>
+                                <img src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678962831/buscoAmigos_cuo9uh.png' alt='No friends' className="white-icon" />
                             </Link>
                         </div>
             }

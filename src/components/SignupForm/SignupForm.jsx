@@ -81,7 +81,7 @@ const SignupForm = () => {
 
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Sign Up</Button>
+                <Button variant="dark" type="submit" className="green-button">Sign Up</Button>
             </div>
 
         </Form>
