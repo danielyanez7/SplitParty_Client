@@ -1,51 +1,84 @@
 import './EventDetails.css'
 import { Container, Card, ListGroup, Row, Col, Table, Modal, Button } from 'react-bootstrap'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
 import { MessageContext } from "../../context/message.context"
 import eventsService from "../../services/events.services"
 import Loader from "../../components/Loader/Loader"
 import * as Constants from './../../consts'
+import { AuthContext } from '../../context/auth.context'
 
 
 const EventDetails = ({ event }) => {
+
+    const { user: owner, refreshToken } = useContext(AuthContext)
+    const { emitMessage } = useContext(MessageContext)
+
+    const [errors, setErrors] = useState([])
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+    const [thisEvent, setThisEvent] = useState({})
 
     let total = 0
 
     const navigate = useNavigate()
 
-    const { id } = useParams()
-
     const date = new Date(event.date)
     const formatDate = date.toDateString()
     const dateArray = formatDate.split(' ')
 
-    const [errors, setErrors] = useState([])
-    const { emitMessage } = useContext(MessageContext)
 
-    const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 500)
-    }, [event])
+        }, 1000)
+    }, [])
 
     const handleDelete = e => {
 
         e.preventDefault()
 
         eventsService
-            .deleteEvent(id)
-            .then(({ data }) => {
+            .deleteEvent(event._id)
+            .then(() => {
                 emitMessage(Constants.DELETEEVENT_MSG)
                 navigate(`/events`)
             })
             .catch(err => setErrors(err.response.data.errorMessages))
         setShowDeleteModal(false)
     }
-    console.log(showDeleteModal)
+
+
+    useEffect(() => {
+        event && setThisEvent(event)
+    }, [event])
+
+    const joinEvent = () => {
+        eventsService
+            .joinEvent(owner._id, event._id)
+            .then(({ data }) => {
+                setThisEvent(data)
+                emitMessage(`We are waiting for you! See you att ${event.name}`)
+                refreshToken()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const exitEvent = () => {
+        eventsService
+            .exitEvent(owner._id, event._id)
+            .then(({ data }) => {
+                setThisEvent(data)
+                emitMessage(`We are going to miss you`)
+                refreshToken()
+            })
+            .catch(err => console.log(err))
+    }
+
+    const isOwner = thisEvent && owner ? thisEvent?.owner?._id === owner?._id : false
+    const isGoing = !isOwner && thisEvent?.guests?.includes(owner._id)
+
     return (
         <Row>
             {
@@ -83,12 +116,33 @@ const EventDetails = ({ event }) => {
                                         </p>
                                     </Col>
                                     <Col md={{ span: 2 }} className='d-flex justify-content-end'>
-                                        <Link variant="link" to={`/events/${event._id}/edit`}>
-                                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
-                                        </Link>
-                                        <Link variant="link" onClick={() => setShowDeleteModal(true)} >
-                                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
-                                        </Link>
+                                        {
+                                            isOwner
+                                                ?
+                                                <>
+                                                    <Link variant="link" to={`/events/${event._id}/edit`}>
+                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
+                                                    </Link>
+                                                    <Link variant="link" onClick={() => setShowDeleteModal(true)} >
+                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
+                                                    </Link>
+                                                </>
+                                                :
+                                                <>
+                                                    {
+                                                        isGoing
+                                                            ?
+                                                            <Button variant="danger" className='event-card-button' onClick={exitEvent}>
+                                                                Exit
+                                                            </Button>
+                                                            :
+                                                            <Button variant="success" className='event-card-button' onClick={joinEvent}>
+                                                                Join
+                                                            </Button>
+                                                    }
+                                                </>
+                                        }
+
                                         <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
                                             <Modal.Header closeButton>
                                                 <Modal.Title>Confirmar eliminación</Modal.Title>
