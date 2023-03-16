@@ -36,13 +36,8 @@ const Navigation = () => {
                         user
                             ?
                             <>
-                                <Dropdown>
-                                    <Dropdown.Toggle
-                                        variant="light"
-                                        align="end"
-                                        title="Dropdown end"
-                                        className='dropdownButton'
-                                    >
+                                <Dropdown align="end">
+                                    <Dropdown.Toggle variant="light" title="Dropdown end" className='dropdownButton'>
                                         <img src={user.avatar} alt={user.username} className='profileButtonImage' />
                                     </Dropdown.Toggle>
 
@@ -57,10 +52,6 @@ const Navigation = () => {
                                     </Dropdown.Menu>
 
                                 </Dropdown>
-                                {/*<Navbar.Text>{user.username} |</Navbar.Text>
-                                    <Link to="/">
-                                        <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
-                                    </Link> */}
                             </>
                             :
                             <>
