@@ -61,3 +61,7 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.purple-text {
+  color: #8956F1
+}

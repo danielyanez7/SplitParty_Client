@@ -56,10 +56,10 @@ const LoginForm = () => {
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Log In</Button>
+                <Button variant="dark" type="submit" className="green-button">Log In</Button>
             </div>
 
-            Don't have an account? <Link to="/signup">Create an account here</Link>
+            Don't have an account? <Link to="/signup" className='purple-text'>Create an account here</Link>
 
         </Form>
     )

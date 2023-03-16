@@ -59,21 +59,21 @@ const HomePage = () => {
                         <Col lg={6}>
                             <div>
                                 <h2>About us</h2>
-                                <p>We are Split Party, a company dedicated to helping you create amazing events with your friends and family. Our goal is to make event planning as easy as possible for you, so that you can enjoy your time with your loved ones.</p>
-                                <p>We offer a wide range of tools and resources to help you create the perfect event, from planning and organizing to managing guests and dividing expenses.</p>
+                                <p className='justify'>We are Split Party, a company dedicated to helping you create amazing events with your friends and family. Our goal is to make event planning as easy as possible for you, so that you can enjoy your time with your loved ones.</p>
+                                <p className='justify'>We offer a wide range of tools and resources to help you create the perfect event, from planning and organizing to managing guests and dividing expenses.</p>
                             </div>
                         </Col>
                         <Col lg={3}>
                             <div >
                                 <Image className="testimonial-image" src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678698156/jaime_hggwyo.png' alt="Testimonial 1" roundedCircle />
-                                <p className="testimonial-text">"Tiki Tiki"</p>
+                                <p>"Simplify event planning."</p>
                                 <p className="testimonial-name">- Jaime Lloreda</p>
                             </div>
                         </Col>
                         <Col lg={3}>
                             <div >
                                 <Image className="testimonial-image" src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678698156/daniel_lzmvev.jpg' alt="Testimonial 2" roundedCircle />
-                                <p className="testimonial-text">"Miau Miau"</p>
+                                <p>"Creating unforgettable memories."</p>
                                 <p className="testimonial-name">- Daniel Yanez</p>
                             </div>
                         </Col>

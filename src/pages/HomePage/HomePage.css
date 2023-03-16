@@ -46,10 +46,10 @@
   min-height: 100vh; 
 }
 
-.about-section p {
+.justify {
   text-align: justify;
   text-justify: inter-word;
-  text-indent: 3em;
+  text-indent: 1em;
 }
 
 .testimonial-image {
@@ -62,7 +62,7 @@
     -moz-transition: .5s, color .10s;
 }
 .float:hover{
-    box-shadow: 0 8px 8px 0 rgb(0, 0, 0),0 8px 8px 0 #000000;
+    box-shadow: 0 8px 8px 0 rgb(0, 0, 0),0 8px 8px 0 #68fe9A;
     transform: translate(0px,5px);
     -webkit-transform: translate(0px,5px);
     -moz-transform:translate(0px,5px);

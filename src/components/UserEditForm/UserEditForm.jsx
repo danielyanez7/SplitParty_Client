@@ -71,7 +71,7 @@ const UserEditForm = () => {
 
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Save</Button>
+                <Button variant="dark" type="submit" className="green-button">Save</Button>
             </div>
 
         </Form>
