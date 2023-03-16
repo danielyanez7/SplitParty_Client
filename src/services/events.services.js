@@ -40,8 +40,8 @@ class EventsService {
         return this.api.delete(`/deleteEvent/${event_id}`)
     }
 
-    getUserEvents() {
-        return this.api.get('/getUserEvents')
+    getUserEvents(user_id) {
+        return this.api.get(`/getUserEvents/${user_id}`)
     }
 
     getJoinedEvents() {

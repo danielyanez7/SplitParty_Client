@@ -44,8 +44,8 @@ class UsersService {
         return this.api.put('/deleteFriend', { owner_id, user_id })
     }
 
-    getFriendsAndEvents() {
-        return this.api.get('/getFriendsAndEvents')
+    getFriends() {
+        return this.api.get('/getFriends')
     }
 
 }

@@ -30,7 +30,7 @@ const ProfilePage = () => {
         <Container>
             <Row className="footer-heigth">
                 <UserDetails user={user} />
-                <MyEvents />
+                <MyEvents id={user._id} />
                 <JoinedEvents />
             </Row>
         </Container>

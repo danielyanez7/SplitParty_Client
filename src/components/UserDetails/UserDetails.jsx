@@ -104,7 +104,11 @@ const UserDetails = ({ user }) => {
                                         </h4>
                                         {
                                             user.friends?.map(friend => {
-                                                return <img src={friend.avatar} alt={friend.username} className='friendAvatar mx-2' />
+                                                return (
+                                                    <Link to={`/users/${friend._id}`}>
+                                                        <img src={friend.avatar} alt={friend.username} className='friendAvatar mx-2' />
+                                                    </Link>
+                                                )
                                             })
                                         }
                                     </Col>

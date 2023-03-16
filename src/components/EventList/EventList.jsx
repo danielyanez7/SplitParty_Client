@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import usersService from "../../services/users.services"
 import UserEvents from "../UserEvents/UserEvents"
 import Loader from "../../components/Loader/Loader"
@@ -11,18 +11,15 @@ const EventList = () => {
 
     useEffect(() => {
         setTimeout(() => {
+            loadFriends()
             setIsLoading(false)
         }, 500)
     }, [])
 
-    useEffect(() => {
-        loadFriendsAndEvents()
-    }, [])
-
-    const loadFriendsAndEvents = () => {
+    const loadFriends = () => {
 
         usersService
-            .getFriendsAndEvents()
+            .getFriends()
             .then(({ data }) => setFriends(data.friends))
             .catch(err => console.log(err))
     }
@@ -34,13 +31,10 @@ const EventList = () => {
                     ?
                     <Loader />
                     :
-                    friends.map(friend => {
+                    friends?.map(friend => {
                         return (
                             <>
-                                <Row md={{ span: 6 }} className='p-3'>
-                                    <UserEvents friend={friend} />
-                                </Row>
-                                <hr />
+                                <UserEvents friend={friend} />
                             </>
                         )
                     })
