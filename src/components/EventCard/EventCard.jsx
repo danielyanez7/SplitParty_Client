@@ -26,26 +26,33 @@ const EventCard = ({ event }) => {
     }
 
     const isGoing = event.guests.includes(owner._id)
-    const isOwner = event.owner === owner._id
+    // const isOwner = event.owner === owner._id
 
     return (
         <Card className='text-center'>
             <Link to={`/events/${event._id}`} className="event-font-color">
                 <Card.Header className="event-card-header">{event.name}</Card.Header>
-                <Card.Body>
+            </Link>
+            <Card.Body>
+                <Link to={`/events/${event._id}`} className="event-font-color">
                     <Card.Title className="event-card-title">
                         <p className='my-0'>{dateArray[0]}</p>
                         <h2 className='my-0'>{dateArray[2]}</h2>
                         <p className='my-0'>{dateArray[1]}. {dateArray[3]}</p>
                     </Card.Title>
-                    {
-                        !isGoing &&
-                        <Button variant="primary" className='event-card-button' onClick={joinEvent}>
+                </Link>
+                {
+                    !isGoing
+                        ?
+                        <Button variant="success" className='event-card-button' onClick={joinEvent}>
                             Join
                         </Button>
-                    }
-                </Card.Body>
-            </Link>
+                        :
+                        <Button variant="danger" className='event-card-button' onClick={joinEvent}>
+                            Cancel
+                        </Button>
+                }
+            </Card.Body>
         </Card>
     )
 }

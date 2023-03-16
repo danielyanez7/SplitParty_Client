@@ -20,7 +20,7 @@ const UserDetails = ({ user }) => {
         setTimeout(() => {
             setIsLoading(false)
         }, 500)
-    }, [user])
+    }, [])
 
     const addFriend = () => {
         usersService
@@ -102,7 +102,7 @@ const UserDetails = ({ user }) => {
                                         {
                                             user.friends?.map(friend => {
                                                 return (
-                                                    <Link to={`/users/${friend._id}`}>
+                                                    <Link key={friend._id} to={`/users/${friend._id}`}>
                                                         <img src={friend.avatar} alt={friend.username} className='friendAvatar mx-2' />
                                                     </Link>
                                                 )

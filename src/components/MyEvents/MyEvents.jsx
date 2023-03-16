@@ -4,11 +4,9 @@ import EventCard from "../EventCard/EventCard"
 
 const MyEvents = ({ id }) => {
 
-    const [events, setEvents] = useState([])
+    console.log("WHO ARE YOUUUU", id)
 
-    useEffect(() => {
-        loadMyEvents()
-    }, [id])
+    const [events, setEvents] = useState([])
 
     const loadMyEvents = () => {
 
@@ -18,13 +16,18 @@ const MyEvents = ({ id }) => {
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        id && loadMyEvents()
+    }, [id])
+
+
 
     return (
         <>
             <h2>Created Events</h2>
             {
                 events.map(event => {
-                    return <EventCard event={event} />
+                    return <EventCard key={event._id} event={event} />
                 })
             }
         </>

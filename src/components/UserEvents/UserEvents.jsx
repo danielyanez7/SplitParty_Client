@@ -1,5 +1,5 @@
 import './UserEvents.css'
-import { Card, Col, Row } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import EventCard from '../EventCard/EventCard'
 import { useEffect, useState } from 'react'
@@ -23,7 +23,7 @@ const UserEvents = ({ friend }) => {
     ), [friend])
 
     return (
-        <Card className='my-3 p-2'>
+        <Container className='my-3 p-2'>
             <Row>
                 <Link to={`/users/${friend._id}`} >
                     <Col md={{ span: 6 }} className='d-flex align-items-center'>
@@ -36,14 +36,14 @@ const UserEvents = ({ friend }) => {
                 {
                     events.map(event => {
                         return (
-                            <Col md={{ span: 2 }} key={event._id} className='d-grid ' >
+                            <Col xl={{ span: 2 }} lg={{ span: 3 }} md={{ span: 4 }} key={event._id} className='d-grid ' >
                                 <EventCard event={event} />
                             </Col>
                         )
                     })
                 }
             </Row>
-        </Card>
+        </Container>
     )
 }
 

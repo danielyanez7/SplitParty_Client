@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { Col, Row } from "react-bootstrap"
 import usersService from "../../services/users.services"
 import UserEvents from "../UserEvents/UserEvents"
 import Loader from "../../components/Loader/Loader"
@@ -11,13 +10,6 @@ const EventList = () => {
     const [friends, setFriends] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-        setTimeout(() => {
-            loadFriends()
-            setIsLoading(false)
-        }, 1000)
-    }, [friends])
-
     const loadFriends = () => {
 
         usersService
@@ -25,6 +17,13 @@ const EventList = () => {
             .then(({ data }) => setFriends(data.friends))
             .catch(err => console.log(err))
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            loadFriends()
+            setIsLoading(false)
+        }, 1000)
+    }, [])
 
     return (
         <>

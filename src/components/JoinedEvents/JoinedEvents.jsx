@@ -23,7 +23,7 @@ const JoinedEvents = () => {
             <h2>Joined events</h2>
             {
                 events.map(event => {
-                    return <EventCard event={event} />
+                    return <EventCard key={event._id} event={event} />
                 })
             }
         </>
