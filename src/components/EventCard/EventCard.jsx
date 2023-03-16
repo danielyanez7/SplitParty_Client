@@ -1,5 +1,5 @@
 import './EventCard.css'
-import { Button, Col, Row } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
@@ -29,31 +29,30 @@ const EventCard = ({ event }) => {
     const isOwner = event.owner === owner._id
 
     return (
-        <>
+        <Card className="event-card">
             <Link to={`/events/${event._id}`} className="event-font-color">
-
-                <Row className='p-2'>
-                    <Col md={{ span: 4 }} className='text-center align-self-center'>
+                <Card.Header className="event-card-header">{event.name}</Card.Header>
+                <Card.Body>
+                    <Card.Title className="event-card-title">
                         <p className='my-0'>{dateArray[0]}</p>
                         <h2 className='my-0'>{dateArray[2]}</h2>
                         <p className='my-0'>{dateArray[1]}. {dateArray[3]}</p>
-                    </Col>
-                    <Col md={{ span: 8 }} className='text-center align-self-center'>
-                        <h3>{event.name}</h3>
-                    </Col>
-                </Row>
+                    </Card.Title>
+                    {
+                        !isGoing &&
+                        <Button variant="primary" className='event-card-button' onClick={joinEvent}>
+                            Join
+                        </Button>
+                    }
+                </Card.Body>
             </Link>
-            <Row className='px-5 align-self-end'>
-                {
-                    !isGoing
-                    &&
-                    <Button variant="link" className='rounded-pill  splitButton' onClick={joinEvent}>
-                        Join
-                    </Button>
-                }
-            </Row>
-        </>
+        </Card>
     )
 }
 
 export default EventCard
+
+
+
+
+
