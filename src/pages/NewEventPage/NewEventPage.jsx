@@ -7,7 +7,7 @@ const NewEventPage = () => {
 
         <Container>
             <Row className="footer-heigth">
-                <Col md={{ span: 8 }} className="mt-5">
+                <Col md={{ span: 8 }}>
 
                     <h1>Add a new Event</h1>
 
