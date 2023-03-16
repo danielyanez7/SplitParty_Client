@@ -1,5 +1,5 @@
 import './EventDetails.css'
-import { Container, Card, ListGroup, Row, Col, Table, Button } from 'react-bootstrap'
+import { Container, Card, ListGroup, Row, Col, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const EventDetails = ({ event }) => {
@@ -24,7 +24,7 @@ const EventDetails = ({ event }) => {
                 </Card.Title>
             </ListGroup.Item>
             <Container>
-                <ListGroup.Item className='mt-5' style={{ position: 'relative' }}>
+                <ListGroup.Item className='mt-5' >
 
                     <Row>
                         <Col md={{ span: 2 }} className='text-center align-self-center'>
