@@ -129,9 +129,9 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
                             </Row>
 
                             <Button
-                                variant="danger"
+                                variant="dark"
                                 size="sm"
-                                className="m-2"
+                                className="m-2 delete-button"
                                 onClick={() => handleProductRemove(elm)}
                             >
                                 Remove

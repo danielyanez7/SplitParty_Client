@@ -28,11 +28,9 @@ const ProfilePage = () => {
 
     return (
         <Container>
-            <Row className="footer-heigth">
-                <UserDetails user={user} />
-                <MyEvents id={user._id} />
-                <JoinedEvents />
-            </Row>
+            <UserDetails user={user} />
+            <MyEvents id={user._id} />
+            <JoinedEvents />
         </Container>
     )
 }
