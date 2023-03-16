@@ -1,4 +1,4 @@
-import { Container, } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import UserDetails from "../../components/UserDetails/UserDetails"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
@@ -23,9 +23,9 @@ const UserDetailsPage = () => {
 
     return (
         <Container>
-
-            <UserDetails user={user} />
-
+            <Row className='footer-heigth'>
+                <UserDetails user={user} />
+            </Row>
         </Container>
     )
 }

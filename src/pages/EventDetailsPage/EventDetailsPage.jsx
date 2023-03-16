@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import eventsService from "../../services/events.services"
 import EventDetails from "../../components/EventDetails/EventDetails"
+import { Row } from "react-bootstrap"
+
 
 const EventDetailsPage = () => {
 
@@ -18,7 +20,9 @@ const EventDetailsPage = () => {
 
     return (
         <>
-            <EventDetails event={event} />
+            <Row className="footer-heigth">
+                <EventDetails event={event} />
+            </Row>
         </>
     )
 }

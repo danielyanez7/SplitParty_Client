@@ -7,7 +7,7 @@ import UserMessage from './components/UserMessage/UserMessage'
 
 function App() {
   return (
-    <div className="App pb-5">
+    <div className="App">
       <Navigation />
 
       <AppRoutes />

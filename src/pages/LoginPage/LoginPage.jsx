@@ -1,3 +1,4 @@
+import './LoginPage.css'
 import { Container, Row, Col } from "react-bootstrap"
 import LoginForm from '../../components/LoginForm/LoginForm'
 
@@ -5,8 +6,8 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <Row>
-                <Col md={{ offset: 3, span: 6 }}>
+            <Row className='footer-heigth'>
+                <Col md={{ span: 6 }}>
 
                     <h1>Log In</h1>
 

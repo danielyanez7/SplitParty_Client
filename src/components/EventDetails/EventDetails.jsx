@@ -1,14 +1,40 @@
 import './EventDetails.css'
-import { Container, Card, ListGroup, Row, Col, Table } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Container, Card, ListGroup, Row, Col, Table, Button } from 'react-bootstrap'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import eventsService from "../../services/events.services"
+import { useContext, useState } from 'react'
+import * as Constants from './../../consts'
+import { MessageContext } from "../../context/message.context"
+
 
 const EventDetails = ({ event }) => {
 
     let total = 0
+
+    const navigate = useNavigate()
+
+    const { id } = useParams()
+
     const date = new Date(event.date)
     const formatDate = date.toDateString()
-
     const dateArray = formatDate.split(' ')
+
+    const [errors, setErrors] = useState([])
+    const { emitMessage } = useContext(MessageContext)
+
+
+    const handleDelete = e => {
+
+        e.preventDefault()
+
+        eventsService
+            .deleteEvent(id)
+            .then(({ data }) => {
+                emitMessage(Constants.DELETEEVENT_MSG)
+                navigate(`/events`)
+            })
+            .catch(err => setErrors(err.response.data.errorMessages))
+    }
 
     return (
         <ListGroup variant="flush">
@@ -42,10 +68,10 @@ const EventDetails = ({ event }) => {
                         </Col>
                         <Col md={{ span: 2 }} className='d-flex justify-content-end'>
                             <Link variant="link" to={`/events/${event._id}/edit`}>
-                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton mx-2' />
+                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
                             </Link>
-                            <Link variant="link" >
-                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton mx-2' />
+                            <Link variant="link" to="/events" onClick={handleDelete}>
+                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
                             </Link>
                         </Col>
                     </Row>
