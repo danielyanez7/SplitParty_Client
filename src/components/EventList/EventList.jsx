@@ -15,8 +15,8 @@ const EventList = () => {
         setTimeout(() => {
             loadFriends()
             setIsLoading(false)
-        }, 500)
-    }, [])
+        }, 1000)
+    }, [friends])
 
     const loadFriends = () => {
 
@@ -43,13 +43,11 @@ const EventList = () => {
                             )
                         })
                         :
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <h5 style={{ textAlign: 'center', maxWidth: '100%' }}>Oh, so sad, you don't have friends, you can find some in our <Link>community</Link> or discover new friends at </h5>
-                                <Link to={"/users"} style={{ marginBottom: '1rem' }}>
-                                    <img src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678962831/buscoAmigos_cuo9uh.png' alt='No friends' />
-                                </Link>
-                            </div>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: '100vh' }}>
+                            <h5 style={{ textAlign: 'center', maxWidth: '100%' }}>Oh, so sad, you don't have friends, you can find some in our <Link>community</Link> or discover new friends at </h5>
+                            <Link to={"/users"} style={{ marginBottom: '1rem' }}>
+                                <img src='https://res.cloudinary.com/dztjq7i4a/image/upload/v1678962831/buscoAmigos_cuo9uh.png' alt='No friends' />
+                            </Link>
                         </div>
             }
         </>

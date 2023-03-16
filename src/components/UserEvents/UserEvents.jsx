@@ -25,18 +25,18 @@ const UserEvents = ({ friend }) => {
     return (
         <Card className='my-3 p-2'>
             <Row>
-                <Col md={{ span: 6 }} className='d-flex '>
-                    <Link to={`/users/${friend._id}`} >
-                        <img src={friend.avatar} alt={friend.username} className='friendAvatar ' />
-                        <h3>{friend.username}</h3>
-                    </Link>
-                </Col>
+                <Link to={`/users/${friend._id}`} >
+                    <Col md={{ span: 6 }} className='d-flex align-items-center'>
+                        <img src={friend.avatar} alt={friend.username} className='friendAvatar my-2 mx-3' />
+                        <h3 className='ms-3'>{friend.username}</h3>
+                    </Col>
+                </Link>
             </Row>
             <Row>
                 {
                     events.map(event => {
                         return (
-                            <Col md={{ span: 6 }} key={event._id} className='d-grid ' >
+                            <Col md={{ span: 2 }} key={event._id} className='d-grid ' >
                                 <EventCard event={event} />
                             </Col>
                         )

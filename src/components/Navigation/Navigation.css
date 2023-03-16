@@ -1,5 +1,6 @@
 .custom-navbar {
     background-color: hwb(140 40% 0%);
+    padding: 0; 
 }
 
 .dropdownButton {

@@ -29,7 +29,7 @@ const EventCard = ({ event }) => {
     const isOwner = event.owner === owner._id
 
     return (
-        <Card className="event-card">
+        <Card className='text-center'>
             <Link to={`/events/${event._id}`} className="event-font-color">
                 <Card.Header className="event-card-header">{event.name}</Card.Header>
                 <Card.Body>
