@@ -23,9 +23,7 @@ const UserDetailsPage = () => {
 
     return (
         <Container>
-            <Row className='footer-heigth'>
-                <UserDetails user={user} />
-            </Row>
+            <UserDetails user={user} />
         </Container>
     )
 }

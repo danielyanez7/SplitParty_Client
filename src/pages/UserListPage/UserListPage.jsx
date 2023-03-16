@@ -20,14 +20,12 @@ const UsersListPage = () => {
     }
 
     return (
-        <Container>
-            <Row className="footer-heigth">
-                <h1>Community Page</h1>
-                <hr />
-                {
-                    <UsersList users={users} />
-                }
-            </Row>
+        <Container className="pt-5">
+            <h1>Community Page</h1>
+            <hr />
+            {
+                <UsersList users={users} />
+            }
         </Container>
 
 

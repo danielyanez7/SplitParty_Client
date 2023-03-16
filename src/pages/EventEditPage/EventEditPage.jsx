@@ -5,9 +5,9 @@ const EventEditPage = () => {
 
     return (
 
-        <Container>
-            <Row className="footer-heigth">
-                <Col md={{ span: 8 }}>
+        <Container className="pt-5">
+            <Row>
+                <Col md={{ offset: 2, span: 8 }}>
 
                     <h1>Edit your Event</h1>
 

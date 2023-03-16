@@ -28,7 +28,7 @@ const UserEvents = ({ friend }) => {
                 <Link to={`/users/${friend._id}`} >
                     <Col md={{ span: 6 }} className='d-flex align-items-center'>
                         <img src={friend.avatar} alt={friend.username} className='friendAvatar my-2 mx-3' />
-                        <h3 className='ms-3'>{friend.username}</h3>
+                        <h3 className='ms-3 white-text'>{friend.username}</h3>
                     </Col>
                 </Link>
             </Row>

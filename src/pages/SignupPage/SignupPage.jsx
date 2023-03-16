@@ -5,8 +5,8 @@ const SignupPage = () => {
 
     return (
         <Container>
-            <Row className='footer-heigth'>
-                <Col md={{ span: 6 }}>
+            <Row className='pt-5'>
+                <Col md={{ offset: 3, span: 6 }}>
 
                     <h1>Sign Up</h1>
 

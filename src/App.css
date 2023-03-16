@@ -4,6 +4,7 @@ Colores base
 - Grey: #24272C
 - Wite bone: #FEFAF1
 - Spring green: #68FE9A
+- Ligth red: #FF6B6B
 - Purple: #8956F1
 */
 
@@ -39,4 +40,24 @@ a {
 .green-button{
   background-color: #68fe9A;
   color: #060606;
+  border: none;
+}
+
+.delete-button {
+  background-color: #FF6B6B;
+  color: #060606;
+  border: none;
+}
+
+.black-text{
+  color: #060606;
+}
+
+.white-text{
+  color: #FEFEF1;
+}
+
+.center-text {
+  display: flex;
+  justify-content: center;
 }
