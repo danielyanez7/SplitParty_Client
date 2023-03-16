@@ -9,10 +9,16 @@ Colores base
 
 a {
   text-decoration: none;
+
+}
+
+.App {
+  background-color: #24272C;
+    color:#FEFEF1 ;
 }
 
 .nav-link:not(.active) {
-  color: #24272C;
+     color:#FEFEF1 ; 
 }
 
 .footer-heigth {
@@ -20,4 +26,17 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text-color {
+  color:#FEFEF1
+}
+
+.white-icon {
+  filter: invert(1);
+}
+
+.green-button{
+  background-color: #68fe9A;
+  color: #060606;
 }
