@@ -100,7 +100,7 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
                             action
                             as="div"
                         >
-                            {product.name} - <strong>{product.price}€</strong>
+                            <img src={`${product.picture}`} alt="product picture" className="friendAvatar" />   {product.name} - <strong>{product.price}€</strong>
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
@@ -115,7 +115,7 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
                         <ListGroup.Item key={elm.product._id}>
                             <Row>
                                 <Col md={{ span: 8 }}>
-                                    {elm.product.name} - <strong>{elm.product.price}€</strong>
+                                    <img src={`${elm.product.picture}`} alt="product picture" className="friendAvatar" /> {elm.product.name} - <strong>{elm.product.price}€</strong>
                                 </Col>
 
                                 <Col md={{ span: 4 }}>
