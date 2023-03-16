@@ -139,7 +139,7 @@ const ProductSelector = ({ handleProductsChange, handleNext }) => {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
-                <Button variant="dark" onClick={handleNext} className="m-2">
+                <Button variant="dark" onClick={handleNext} className="m-2 green-button">
                     Next
                 </Button>
             </Form.Group>

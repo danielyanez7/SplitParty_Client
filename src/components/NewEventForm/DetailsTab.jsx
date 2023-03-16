@@ -20,7 +20,7 @@ const EventDetails = ({ handleNext, handleFormDataChange }) => {
                     onChange={handleFormDataChange}
                 />
             </Form.Group>
-            <Button variant="dark" onClick={handleNext}>
+            <Button variant="dark" onClick={handleNext} className="green-button">
                 Next
             </Button>
         </>

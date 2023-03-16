@@ -1,5 +1,5 @@
 .custom-navbar {
-    background-color: hwb(140 40% 0%);
+    background-color: #060606;
     padding: 0; 
 }
 
@@ -18,5 +18,5 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
-    background-color: #fff;
+    background-color: #FEFAF1;
 }

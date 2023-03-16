@@ -35,7 +35,7 @@ const BasicInformation = ({ formData, setFormData, handleNext }) => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Button variant="dark" onClick={handleNext}>
+            <Button variant="dark" onClick={handleNext} className="green-button">
                 Next
             </Button>
         </>
