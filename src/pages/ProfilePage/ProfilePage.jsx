@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Container } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 
 import { AuthContext } from "../../context/auth.context"
 import usersService from "../../services/users.services"
@@ -27,10 +27,12 @@ const ProfilePage = () => {
     }
 
     return (
-        <Container className="pt-3">
-            <UserDetails user={user} />
-            <MyEvents />
-            <JoinedEvents />
+        <Container>
+            <Row className="footer-heigth">
+                <UserDetails user={user} />
+                <MyEvents />
+                <JoinedEvents />
+            </Row>
         </Container>
     )
 }

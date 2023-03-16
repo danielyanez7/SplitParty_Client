@@ -6,8 +6,8 @@ const ProfileEditPage = () => {
     return (
 
         <Container>
-            <Row>
-                <Col md={{ offset: 3, span: 6 }}>
+            <Row className="footer-heigth">
+                <Col md={{ span: 6 }}>
 
                     <h1>Profile Edit</h1>
 

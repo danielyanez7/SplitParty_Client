@@ -1,7 +1,7 @@
 import UsersList from "../../components/UsersList/UsersList"
 import { useState, useEffect } from "react"
 import usersService from "../../services/users.services"
-import { Container } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 
 
 const UsersListPage = () => {
@@ -20,12 +20,14 @@ const UsersListPage = () => {
     }
 
     return (
-        <Container className="pt-3">
-            <h1>Community Page</h1>
-            <hr />
-            {
-                <UsersList users={users} />
-            }
+        <Container>
+            <Row className="footer-heigth">
+                <h1>Community Page</h1>
+                <hr />
+                {
+                    <UsersList users={users} />
+                }
+            </Row>
         </Container>
 
 

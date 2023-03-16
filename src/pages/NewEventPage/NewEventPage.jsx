@@ -6,8 +6,8 @@ const NewEventPage = () => {
     return (
 
         <Container>
-            <Row>
-                <Col md={{ offset: 2, span: 8 }} className="mt-5">
+            <Row className="footer-heigth">
+                <Col md={{ span: 8 }} className="mt-5">
 
                     <h1>Add a new Event</h1>
 
