@@ -52,6 +52,10 @@ class EventsService {
         return this.api.put('/joinEvent', { owner_id, event_id })
     }
 
+    exitEvent(owner_id, event_id) {
+        return this.api.put('/exitEvent', { owner_id, event_id })
+    }
+
 }
 
 const eventsService = new EventsService()

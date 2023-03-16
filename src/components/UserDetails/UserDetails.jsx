@@ -43,7 +43,7 @@ const UserDetails = ({ user }) => {
     }
 
     const isOWner = owner?._id !== user._id
-    const areFriends = owner.friends?.map(friend => friend.includes(user._id)).includes(true)
+    const areFriends = owner?.friends.map(friend => friend.includes(user._id)).includes(true)
 
     return (
         <>
@@ -53,14 +53,13 @@ const UserDetails = ({ user }) => {
                     <Loader />
                     :
                     <Row className='g-0'>
-                        < Col md='4' className='py-5' >
+
+                        < Col md={{ span: 3 }} className='p-5' >
                             <img src={user.avatar} alt={user.username} className='img-fluid rounded-circle userAvatar' />
                         </Col >
 
-                        <Col md='8' className='py-5 px-2'>
-
+                        <Col md={{ span: 8 }} className='py-5 px-2'>
                             <Card.Body>
-
                                 <Row className='d-flex align-items-center'>
 
                                     <Col md={{ span: 8 }}>

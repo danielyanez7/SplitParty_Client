@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
+import { Col, Row } from "react-bootstrap"
 import eventsService from "../../services/events.services"
 import EventCard from "../EventCard/EventCard"
 
 const MyEvents = ({ id }) => {
-
-    console.log("WHO ARE YOUUUU", id)
 
     const [events, setEvents] = useState([])
 
@@ -20,17 +19,19 @@ const MyEvents = ({ id }) => {
         id && loadMyEvents()
     }, [id])
 
-
-
     return (
-        <>
+        <Row className="my-3">
             <h2>Created Events</h2>
             {
                 events.map(event => {
-                    return <EventCard key={event._id} event={event} />
+                    return (
+                        <Col xl={{ span: 2 }} lg={{ span: 3 }} md={{ span: 4 }} key={event._id} className='d-grid ' >
+                            <EventCard event={event} />
+                        </Col>
+                    )
                 })
             }
-        </>
+        </Row>
     )
 }
 
