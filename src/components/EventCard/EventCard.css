@@ -13,3 +13,7 @@
 .event-font-color{
     color: black
 }
+
+.event-card {
+  width: 200px;
+}

@@ -85,11 +85,8 @@ const UserDetails = ({ user }) => {
                                             :
                                             <>
                                                 <Link variant="link" to={'/profile/edit'}>
-                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Editar" className='detailsButton' />
+                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton' />
                                                 </Link>
-                                                <Button variant="link">
-                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Borrar" className='detailsButton' />
-                                                </Button>
                                             </>
                                         }
 

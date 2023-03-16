@@ -1,11 +1,11 @@
 import './EventDetails.css'
-import { Container, Card, ListGroup, Row, Col, Table, Button } from 'react-bootstrap'
+import { Container, Card, ListGroup, Row, Col, Table, Modal, Button } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import eventsService from "../../services/events.services"
 import { useContext, useState, useEffect } from 'react'
-import * as Constants from './../../consts'
 import { MessageContext } from "../../context/message.context"
+import eventsService from "../../services/events.services"
 import Loader from "../../components/Loader/Loader"
+import * as Constants from './../../consts'
 
 
 const EventDetails = ({ event }) => {
@@ -23,6 +23,7 @@ const EventDetails = ({ event }) => {
     const [errors, setErrors] = useState([])
     const { emitMessage } = useContext(MessageContext)
 
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -42,8 +43,9 @@ const EventDetails = ({ event }) => {
                 navigate(`/events`)
             })
             .catch(err => setErrors(err.response.data.errorMessages))
+        setShowDeleteModal(false)
     }
-
+    console.log(showDeleteModal)
     return (
         <Row>
             {
@@ -84,9 +86,25 @@ const EventDetails = ({ event }) => {
                                         <Link variant="link" to={`/events/${event._id}/edit`}>
                                             <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
                                         </Link>
-                                        <Link variant="link" to="/events" onClick={handleDelete}>
+                                        <Link variant="link" onClick={() => setShowDeleteModal(true)} >
                                             <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
                                         </Link>
+                                        <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Confirmar eliminación</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                ¿Está seguro de que desea eliminar este evento?
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+                                                    Cancelar
+                                                </Button>
+                                                <Button variant="danger" to="/events" onClick={handleDelete}>
+                                                    Eliminar
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
                                     </Col>
                                 </Row>
 
