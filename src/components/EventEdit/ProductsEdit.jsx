@@ -10,11 +10,10 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-        console.log(event)
         setSelectedProducts(event?.products)
         setSelectedProductsId(selectedProducts?.map(elm => elm.product._id))
         selectedProducts?.length > 0 && loadProducts(selectedProductsId)
-    }, [event?._id, event])
+    }, [event])
 
     useEffect(() => {
         handleProductsChange(selectedProducts)
