@@ -115,30 +115,34 @@ const EventDetails = ({ event }) => {
                                             <strong>{event.location}</strong>
                                         </p>
                                     </Col>
-                                    <Col md={{ span: 2 }} className='d-flex justify-content-end'>
+                                    <Col md={{ span: 2 }} className='d-flex justify-content-center align-items-center'>
                                         {
                                             isOwner
                                                 ?
-                                                <>
+                                                <div className='d-block'>
                                                     <Link variant="link" to={`/events/${event._id}/edit`}>
                                                         <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
                                                     </Link>
                                                     <Link variant="link" onClick={() => setShowDeleteModal(true)} >
                                                         <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
                                                     </Link>
-                                                </>
+                                                </div>
                                                 :
                                                 <>
                                                     {
                                                         isGoing
                                                             ?
-                                                            <Button variant="danger" className='event-card-button' onClick={exitEvent}>
-                                                                Exit
-                                                            </Button>
+                                                            <div className='d-block'>
+                                                                <Button variant="danger" className='event-card-button' onClick={exitEvent}>
+                                                                    Exit
+                                                                </Button>
+                                                            </div>
                                                             :
-                                                            <Button variant="success" className='event-card-button' onClick={joinEvent}>
-                                                                Join
-                                                            </Button>
+                                                            <div className='d-block'>
+                                                                <Button variant="success" className='event-card-button' onClick={joinEvent}>
+                                                                    Join
+                                                                </Button>
+                                                            </div>
                                                     }
                                                 </>
                                         }

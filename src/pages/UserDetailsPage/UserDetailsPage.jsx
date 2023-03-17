@@ -3,6 +3,7 @@ import UserDetails from "../../components/UserDetails/UserDetails"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import usersService from "../../services/users.services"
+import JoinedEvents from "../../components/JoinedEvents/JoinedEvents"
 
 const UserDetailsPage = () => {
 
@@ -24,6 +25,7 @@ const UserDetailsPage = () => {
     return (
         <Container>
             <UserDetails user={user} />
+            <JoinedEvents user={user} />
         </Container>
     )
 }

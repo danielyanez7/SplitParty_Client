@@ -1,10 +1,11 @@
 import './EventCard.css'
-import { Button, Card } from "react-bootstrap"
-import { Link } from 'react-router-dom'
+import { Button, Card, Modal } from "react-bootstrap"
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { MessageContext } from "../../context/message.context"
 import eventsService from '../../services/events.services'
+import * as Constants from './../../consts'
 
 const EventCard = ({ event }) => {
 
@@ -12,6 +13,10 @@ const EventCard = ({ event }) => {
     const { emitMessage } = useContext(MessageContext)
 
     const [thisEvent, setThisEvent] = useState({})
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [errors, setErrors] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         event && setThisEvent(event)
@@ -44,8 +49,22 @@ const EventCard = ({ event }) => {
             .catch(err => console.log(err))
     }
 
+    const handleDelete = e => {
+
+        e.preventDefault()
+
+        eventsService
+            .deleteEvent(event._id)
+            .then(() => {
+                emitMessage(Constants.DELETEEVENT_MSG)
+                navigate(`/events`)
+            })
+            .catch(err => setErrors(err.response.data.errorMessages))
+        setShowDeleteModal(false)
+    }
+
     const isGoing = thisEvent.guests?.includes(owner._id)
-    // const isOwner = event.owner === owner._id
+    const isOwner = thisEvent && owner ? thisEvent?.owner?._id === owner?._id : false
 
     return (
         <Card className='text-center'>
@@ -60,19 +79,51 @@ const EventCard = ({ event }) => {
                         <p className='my-0'>{dateArray[1]}. {dateArray[3]}</p>
                     </Card.Title>
                 </Link>
-                {
-                    !isGoing
-                        ?
-                        <Button variant="dark" className='event-card-button green-button' onClick={joinEvent}>
-                            Join
-                        </Button>
-                        :
-                        <Button variant="dark" className='event-card-button delete-button' onClick={exitEvent}>
-                            Exit
-                        </Button>
+                {isOwner
+                    ?
+                    <div className='d-block'>
+                        <Link variant="link" to={`/events/${event._id}/edit`}>
+                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
+                        </Link>
+                        <Link variant="link" onClick={() => setShowDeleteModal(true)} >
+                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
+                        </Link>
+                    </div>
+                    :
+                    <>
+                        {
+                            !isGoing
+                                ?
+                                <Button variant="dark" className='event-card-button green-button' onClick={joinEvent}>
+                                    Join
+                                </Button>
+                                :
+                                <Button variant="dark" className='event-card-button delete-button' onClick={exitEvent}>
+                                    Exit
+                                </Button>
+                        }
+
+                        <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Confirmar eliminación</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                ¿Está seguro de que desea eliminar este evento?
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+                                    Cancelar
+                                </Button>
+                                <Button variant="danger" to="/events" onClick={handleDelete}>
+                                    Eliminar
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </>
                 }
+
             </Card.Body>
-        </Card>
+        </Card >
     )
 }
 
