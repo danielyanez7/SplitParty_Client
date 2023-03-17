@@ -40,11 +40,11 @@ const HomePage = () => {
 
                                 <div className="button-group">
                                     <Link to="/events/create">
-                                        <Button className="float" variant="dark">Create your event</Button>
+                                        <Button className="float green-button" variant="dark">Create your event</Button>
                                     </Link>
 
                                     <Link to="/events">
-                                        <Button variant="dark" className='float'>Join a Friend Event</Button>
+                                        <Button variant="dark" className='float green-button'>Join a Friend Event</Button>
                                     </Link>
                                 </div>
                             </div>
