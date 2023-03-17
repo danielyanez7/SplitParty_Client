@@ -83,7 +83,7 @@ const EventCard = ({ event }) => {
                     ?
                     <div className='d-block'>
                         <Link variant="link" to={`/events/${event._id}/edit`}>
-                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
+                            <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/edit_icon_128873_gazpft.png" alt="Edit" className='detailsButton mx-2' />
                         </Link>
 
                     </div>

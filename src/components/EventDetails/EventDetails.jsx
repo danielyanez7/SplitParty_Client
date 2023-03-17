@@ -113,7 +113,7 @@ const EventDetails = ({ event }) => {
                                     <Col md={{ span: 8 }}>
                                         <p> {event.description}</p>
                                         <p>
-                                            <img src="https://cdn.icon-icons.com/icons2/1946/PNG/512/1904662-location-map-map-location-map-point-pin-place-placeholder_122512.png" alt="location" className='social-media-img mx-2' />
+                                            <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/map_pin_icon_128819_fhnd5g.png" alt="location" className='social-media-img mx-2' />
                                             <strong>{event.location}</strong>
                                         </p>
                                     </Col>
@@ -123,10 +123,10 @@ const EventDetails = ({ event }) => {
                                             &&
                                             <div className='d-block'>
                                                 <Link variant="link" to={`/events/${event._id}/edit`}>
-                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
+                                                    <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/edit_icon_128873_gazpft.png" alt="Edit" className='detailsButton mx-2' />
                                                 </Link>
                                                 <Link variant="link" onClick={() => setShowDeleteModal(true)} >
-                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
+                                                    <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/trash_icon_128726_lignrr.png" alt="Delete" className='detailsButton mx-2' />
                                                 </Link>
                                             </div>
 
@@ -236,7 +236,7 @@ const EventDetails = ({ event }) => {
 
                                     <Col md={6} style={{ textAlign: 'right' }}>
                                         <p>
-                                            <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/whatsapp_icon-icons.com_65442.png" alt="Whatsapp Icon" className='social-media-img mx-2' />
+                                            <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/whatsapp_icon-icons.com_65442_fahvxp.png" alt="Whatsapp Icon" className='social-media-img mx-2' />
                                             Contact Host
                                         </p>
                                     </Col>
@@ -250,7 +250,7 @@ const EventDetails = ({ event }) => {
                                     <Col md={3}>{(total / (thisEvent.guests?.length + 1)).toFixed(2)}€ </Col>
                                     <Col md={6} style={{ textAlign: 'right' }}>
                                         <p>
-                                            <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img mx-2' />
+                                            <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/instagram_icon-icons.com_65435_zmck0o.png" alt="Instagram Icon" className='social-media-img mx-2' />
                                             #{event.name?.split(' ').join('')}{dateArray[2]}{dateArray[1]}
                                         </p>
                                     </Col>

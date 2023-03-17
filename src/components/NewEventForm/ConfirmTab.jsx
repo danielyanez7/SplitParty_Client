@@ -26,7 +26,7 @@ const ConfirmTab = ({ formData, handleFormSubmit }) => {
                         <Col md={{ span: 8 }}>
                             <p> {formData.description}</p>
                             <p>
-                                <img src="https://cdn.icon-icons.com/icons2/1946/PNG/512/1904662-location-map-map-location-map-point-pin-place-placeholder_122512.png" alt="location" className='social-media-img mx-2' />
+                                <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/map_pin_icon_128819_fhnd5g.png" alt="location" className='social-media-img mx-2' />
                                 <strong>{formData.location}</strong>
                             </p>
                         </Col>

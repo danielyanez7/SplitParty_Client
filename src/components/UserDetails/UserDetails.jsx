@@ -73,18 +73,18 @@ const UserDetails = ({ user }) => {
                                                 {areFriends
                                                     ?
                                                     <Button variant="link" onClick={deleteFriend}>
-                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/square_close_cross_icon_128691.png" alt="Add friend" className='detailsButton white-icon' />
+                                                        <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679050299/user_check_icon_128710_cootrt.png" alt="Add friend" className='detailsButton white-icon' />
                                                     </Button>
                                                     :
                                                     <Button variant="link" onClick={addFriend}>
-                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/user_check_icon_128710.png" alt="Add friend" className='detailsButton white-icon' />
+                                                        <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679050299/square_close_cross_icon_128691_hmdfxj.png" alt="Add friend" className='detailsButton white-icon' />
                                                     </Button>
                                                 }
                                             </>
                                             :
                                             <>
                                                 <Link variant="link" to={'/profile/edit'}>
-                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton white-icon' />
+                                                    <img src="https://res.cloudinary.com/dztjq7i4a/image/upload/v1679049963/edit_icon_128873_gazpft.png" alt="Edit" className='detailsButton white-icon' />
                                                 </Link>
                                             </>
                                         }
