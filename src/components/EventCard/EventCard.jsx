@@ -85,9 +85,7 @@ const EventCard = ({ event }) => {
                         <Link variant="link" to={`/events/${event._id}/edit`}>
                             <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
                         </Link>
-                        <Link variant="link" onClick={() => setShowDeleteModal(true)} >
-                            <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
-                        </Link>
+
                     </div>
                     :
                     <>

@@ -79,7 +79,7 @@ const EventDetails = ({ event }) => {
     const isOwner = thisEvent && owner ? thisEvent?.owner?._id === owner?._id : false
     // const isGoing = !isOwner && thisEvent?.guests.includes(owner._id)
 
-    console.log(isGoing)
+    // console.log(isGoing)
 
     return (
         <Row>
@@ -120,33 +120,33 @@ const EventDetails = ({ event }) => {
                                     <Col md={{ span: 2 }} className='d-flex justify-content-center align-items-center'>
                                         {
                                             isOwner
-                                                ?
-                                                <div className='d-block'>
-                                                    <Link variant="link" to={`/events/${event._id}/edit`}>
-                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
-                                                    </Link>
-                                                    <Link variant="link" onClick={() => setShowDeleteModal(true)} >
-                                                        <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
-                                                    </Link>
-                                                </div>
-                                                :
-                                                <>
-                                                    {
-                                                        isGoing
-                                                            ?
-                                                            <div className='d-block'>
-                                                                <Button variant="dark" className='event-card-button delete-button' onClick={exitEvent}>
-                                                                    Exit
-                                                                </Button>
-                                                            </div>
-                                                            :
-                                                            <div className='d-block'>
-                                                                <Button variant="dark" className='event-card-button green-button' onClick={joinEvent}>
-                                                                    Join
-                                                                </Button>
-                                                            </div>
-                                                    }
-                                                </>
+                                            &&
+                                            <div className='d-block'>
+                                                <Link variant="link" to={`/events/${event._id}/edit`}>
+                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" alt="Edit" className='detailsButton mx-2' />
+                                                </Link>
+                                                <Link variant="link" onClick={() => setShowDeleteModal(true)} >
+                                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/trash_icon_128726.png" alt="Delete" className='detailsButton mx-2' />
+                                                </Link>
+                                            </div>
+
+                                            // <>
+                                            //     {
+                                            //         isGoing
+                                            //             ?
+                                            //             <div className='d-block'>
+                                            //                 <Button variant="dark" className='event-card-button delete-button' onClick={exitEvent}>
+                                            //                     Exit
+                                            //                 </Button>
+                                            //             </div>
+                                            //             :
+                                            //             <div className='d-block'>
+                                            //                 <Button variant="dark" className='event-card-button green-button' onClick={joinEvent}>
+                                            //                     Join
+                                            //                 </Button>
+                                            //             </div>
+                                            //     }
+                                            // </>
                                         }
 
                                         <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
