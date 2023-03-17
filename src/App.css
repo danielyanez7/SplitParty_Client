@@ -23,7 +23,7 @@ a {
 }
 
 .footer-heigth {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 58px);
     display: flex;
     justify-content: center;
     align-items: center;

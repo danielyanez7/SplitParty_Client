@@ -17,7 +17,7 @@ const ConfirmEdit = ({ handleFormSubmit, formData }) => {
 
             <Card className="m-3 p-3">
 
-                <Card.Body>
+                <Card.Body className="black-text">
                     <Card.Title>Name: {formData.name}</Card.Title>
                     <Row>
                         <Col>
@@ -64,7 +64,7 @@ const ConfirmEdit = ({ handleFormSubmit, formData }) => {
                             </tr>
                         </tbody>
                     </Table>
-                    <Button variant="dark" type="submit" onClick={handleFormSubmit} className="mt-4">
+                    <Button variant="dark" type="submit" onClick={handleFormSubmit} className="mt-4 green-button">
                         Confirm Edit
                     </Button>
                 </Card.Body>

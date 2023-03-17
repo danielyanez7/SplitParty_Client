@@ -22,7 +22,7 @@ const DetailsEdit = ({ handleNext, handleInputChange, formData }) => {
                     onChange={handleInputChange}
                 />
             </Form.Group>
-            <Button variant="dark" onClick={handleNext}>
+            <Button variant="dark" className="green-button" onClick={handleNext}>
                 Next
             </Button>
         </>
