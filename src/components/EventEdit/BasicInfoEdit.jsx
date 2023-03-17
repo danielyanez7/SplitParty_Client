@@ -70,7 +70,7 @@ const BasicInfoEdit = ({ handleNext, formData, handleInputChange }) => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Button variant="dark" onClick={handleNext}>
+            <Button variant="dark" className="green-button" onClick={handleNext}>
                 Next
             </Button>
         </>

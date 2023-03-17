@@ -131,9 +131,9 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
                             </Row>
 
                             <Button
-                                variant="danger"
+                                variant="dark"
                                 size="sm"
-                                className="m-2"
+                                className="m-2 delete-button"
                                 onClick={() => handleProductRemove(elm)}
                             >
                                 Remove
@@ -141,7 +141,7 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
-                <Button variant="dark" onClick={handleNext} className="m-2">
+                <Button variant="dark" onClick={handleNext} className="m-2 green-button">
                     Next
                 </Button>
             </Form.Group>
