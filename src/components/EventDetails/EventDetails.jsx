@@ -77,7 +77,9 @@ const EventDetails = ({ event }) => {
     }
 
     const isOwner = thisEvent && owner ? thisEvent?.owner?._id === owner?._id : false
-    const isGoing = !isOwner && thisEvent?.guests?.includes(owner._id)
+    const isGoing = !isOwner && thisEvent?.guests.includes(owner._id)
+
+    console.log(isGoing)
 
     return (
         <Row>
@@ -133,13 +135,13 @@ const EventDetails = ({ event }) => {
                                                         isGoing
                                                             ?
                                                             <div className='d-block'>
-                                                                <Button variant="danger" className='event-card-button' onClick={exitEvent}>
+                                                                <Button variant="dark" className='event-card-button delete-button' onClick={exitEvent}>
                                                                     Exit
                                                                 </Button>
                                                             </div>
                                                             :
                                                             <div className='d-block'>
-                                                                <Button variant="success" className='event-card-button' onClick={joinEvent}>
+                                                                <Button variant="dark" className='event-card-button green-button' onClick={joinEvent}>
                                                                     Join
                                                                 </Button>
                                                             </div>
@@ -210,13 +212,24 @@ const EventDetails = ({ event }) => {
                                 <Row>
                                     <Col md={3}>
                                         <div className="">
+                                            Owner
+                                        </div>
+                                    </Col>
+                                    <Col md={3}>
+                                        <img src={event.owner.avatar} alt={event.owner.username} className='friendAvatar mx-2' />
+                                        <span>{event.owner.username}</span>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col md={3}>
+                                        <div className="">
                                             Guests
                                         </div>
                                     </Col>
                                     <Col md={3}>
                                         {
-                                            event.guests?.map(guest => {
-                                                return <p>{guest.username}</p>
+                                            thisEvent.guests?.map(guest => {
+                                                return <img src={guest.avatar} alt={guest.username} className='friendAvatar mx-2' />
                                             })
                                         }
                                     </Col>
@@ -234,7 +247,7 @@ const EventDetails = ({ event }) => {
                                             Per Guest
                                         </div>
                                     </Col>
-                                    <Col md={3}>{(total / (event.guests?.length + 1)).toFixed(2)}€ </Col>
+                                    <Col md={3}>{(total / (thisEvent.guests?.length + 1)).toFixed(2)}€ </Col>
                                     <Col md={6} style={{ textAlign: 'right' }}>
                                         <p>
                                             <img src="https://cdn.icon-icons.com/icons2/790/PNG/512/instagram_icon-icons.com_65435.png" alt="Instagram Icon" className='social-media-img mx-2' />
