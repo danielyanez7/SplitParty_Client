@@ -16,9 +16,6 @@ const ProductsEdit = ({ handleProductsChange, handleNext, event }) => {
     }, [event])
 
     useEffect(() => {
-    }, [selectedProductsId])
-
-    useEffect(() => {
         handleProductsChange(selectedProducts)
     }, [selectedProducts])
 
