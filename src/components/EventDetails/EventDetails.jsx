@@ -77,7 +77,7 @@ const EventDetails = ({ event }) => {
     }
 
     const isOwner = thisEvent && owner ? thisEvent?.owner?._id === owner?._id : false
-    const isGoing = !isOwner && thisEvent?.guests.includes(owner._id)
+    // const isGoing = !isOwner && thisEvent?.guests.includes(owner._id)
 
     console.log(isGoing)
 
